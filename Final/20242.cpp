@@ -1,5 +1,5 @@
 /*---------------------------------------------------------*/
-/* ----------------   Práctica REPOsito--------------------------*/
+/* ----------------   Práctica 8--------------------------*/
 /*-----------------    2024-2   ---------------------------*/
 /*------------- Alumno:Gòmez Moctezuma Eddie Jovany ---------------*/
 /*------------- No. Cuenta 417009993 ---------------*/
@@ -34,6 +34,7 @@ void mouse_callback(GLFWwindow* window, double xpos, double ypos);
 void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
 void my_input(GLFWwindow* window, int key, int scancode, int action, int mods);
 void animate(void);
+
 
 // settings
 unsigned int SCR_WIDTH = 800;
@@ -76,10 +77,11 @@ unsigned int	t_onepice,
 				t_unam,
 				t_white,
 				t_ladrillos,
-				t_prueba,
-t_cubo;
+				t_cubo;
 
 //Lighting
+glm::vec3 posMiLuz(0.0f, 0.0f, 0.0f);
+float myVariable = 0.0f;
 glm::vec3 lightPosition(0.0f, 4.0f, -10.0f);
 glm::vec3 lightDirection(0.0f, -1.0f, -1.0f);
 
@@ -222,6 +224,11 @@ void LoadTextures()
 
 void animate(void) 
 {
+	posMiLuz.x = 150.0f * cos(myVariable);
+	posMiLuz.z = 150.0f * sin(myVariable);
+
+	myVariable += 0.1f;
+
 	if (play)
 	{
 		if (i_curr_steps >= i_max_steps) //end of animation between frames?
@@ -244,6 +251,7 @@ void animate(void)
 		else
 		{
 			//Draw animation
+			
 			posX += incX;
 			posY += incY;
 			posZ += incZ;
@@ -527,16 +535,17 @@ int main() {
 		staticShader.use();
 		//Setup Advanced Lights
 		staticShader.setVec3("viewPos", camera.Position);
-		staticShader.setVec3("dirLight.direction", lightDirection);
-		staticShader.setVec3("dirLight.ambient", glm::vec3(0.2f));
-		staticShader.setVec3("dirLight.diffuse", glm::vec3(0.8f, 0.8f, 0.8f));
-		staticShader.setVec3("dirLight.specular", glm::vec3(0.8f, 0.8f, 0.8f));
-
+		staticShader.setVec3("dirLight.direction", lightDirection); /// para representar luz como el sol
+		staticShader.setVec3("dirLight.ambient", glm::vec3(0.0f));
+		staticShader.setVec3("dirLight.diffuse", glm::vec3(0.0f, 0.0f, 0.0f));
+		staticShader.setVec3("dirLight.specular", glm::vec3(0.0f, 0.0f, 0.0f));
+		/// fuente de luz posicional
 		staticShader.setVec3("pointLight[0].position", lightPosition);
-		staticShader.setVec3("pointLight[0].ambient", glm::vec3(1.0f, 1.0f, 1.0f));
-		staticShader.setVec3("pointLight[0].diffuse", glm::vec3(1.0f, 1.0f, 1.0f));
+		staticShader.setVec3("pointLight[0].ambient", glm::vec3(0.0f, 0.0f, 0.0f));
+		staticShader.setVec3("pointLight[0].diffuse", glm::vec3(0.0f, 0.0f, 0.0f));
 		staticShader.setVec3("pointLight[0].specular", glm::vec3(0.0f, 0.0f, 0.0f));
-		staticShader.setFloat("pointLight[0].constant", 0.08f);
+		// valores de atenuacion
+		staticShader.setFloat("pointLight[0].constant", 0.08f);// amplifica la luz entre menor sea mas potente
 		staticShader.setFloat("pointLight[0].linear", 0.009f);
 		staticShader.setFloat("pointLight[0].quadratic", 0.032f);
 
@@ -544,18 +553,26 @@ int main() {
 		staticShader.setVec3("pointLight[1].ambient", glm::vec3(0.0f, 0.0f, 0.0f));
 		staticShader.setVec3("pointLight[1].diffuse", glm::vec3(0.0f, 0.0f, 0.0f));
 		staticShader.setVec3("pointLight[1].specular", glm::vec3(0.0f, 0.0f, 0.0f));
-		staticShader.setFloat("pointLight[1].constant", 1.0f);
+		staticShader.setFloat("pointLight[1].constant", 0.08f);
 		staticShader.setFloat("pointLight[1].linear", 0.009f);
 		staticShader.setFloat("pointLight[1].quadratic", 0.032f);
 
-		staticShader.setVec3("spotLight[0].position", glm::vec3(0.0f, 20.0f, 10.0f));
-		staticShader.setVec3("spotLight[0].direction", glm::vec3(0.0f, -1.0f, 0.0f));
-		staticShader.setVec3("spotLight[0].ambient", glm::vec3(0.0f, 0.0f, 0.0f));
-		staticShader.setVec3("spotLight[0].diffuse", glm::vec3(0.0f, 0.0f, 0.0f));
+		staticShader.setVec3("pointLight[2].position", posMiLuz);
+		staticShader.setVec3("pointLight[2].ambient", glm::vec3(0.8f, 0.0f, 0.0f));
+		staticShader.setVec3("pointLight[2].diffuse", glm::vec3(1.0f, 0.0f, 0.0f));
+		staticShader.setVec3("pointLight[2].specular", glm::vec3(0.0f, 0.0f, 0.0f));
+		staticShader.setFloat("pointLight[2].constant", 0.001f);
+		staticShader.setFloat("pointLight[2].linear", 0.009f);
+		staticShader.setFloat("pointLight[2].quadratic", 0.00032f);
+
+		staticShader.setVec3("spotLight[0].position", glm::vec3(camera.Position.x, camera.Position.y, camera.Position.z));
+		staticShader.setVec3("spotLight[0].direction", camera.Front);
+		staticShader.setVec3("spotLight[0].ambient", glm::vec3(1.0f, 1.0f, 1.0f));
+		staticShader.setVec3("spotLight[0].diffuse", glm::vec3(1.0f, 1.0f, 1.0f));
 		staticShader.setVec3("spotLight[0].specular", glm::vec3(0.0f, 0.0f, 0.0f));
 		staticShader.setFloat("spotLight[0].cutOff", glm::cos(glm::radians(10.0f)));
-		staticShader.setFloat("spotLight[0].outerCutOff", glm::cos(glm::radians(60.0f)));
-		staticShader.setFloat("spotLight[0].constant", 1.0f);
+		staticShader.setFloat("spotLight[0].outerCutOff", glm::cos(glm::radians(10.0f)));
+		staticShader.setFloat("spotLight[0].constant", 0.01f);
 		staticShader.setFloat("spotLight[0].linear", 0.0009f);
 		staticShader.setFloat("spotLight[0].quadratic", 0.0005f);
 
@@ -897,14 +914,15 @@ void my_input(GLFWwindow* window, int key, int scancode, int action, int mode)
 		giroMonito--;
 	if (glfwGetKey(window, GLFW_KEY_B) == GLFW_PRESS)
 		giroMonito++;
-	//if (glfwGetKey(window, GLFW_KEY_M) == GLFW_PRESS)
+	if (glfwGetKey(window, GLFW_KEY_M) == GLFW_PRESS)
 		lightPosition.x++;
 	//if (glfwGetKey(window, GLFW_KEY_N) == GLFW_PRESS)
 		lightPosition.x--;
 
-	if (glfwGetKey(window, GLFW_KEY_M) == GLFW_PRESS)
+
+	//if (glfwGetKey(window, GLFW_KEY_M) == GLFW_PRESS)
 		rotbrazoizq += +3.0;
-	if (glfwGetKey(window, GLFW_KEY_N) == GLFW_PRESS)
+	//if (glfwGetKey(window, GLFW_KEY_N) == GLFW_PRESS)
 		rotbrazoizq += -3.0;
 
 	//Car animation
