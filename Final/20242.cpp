@@ -1,7 +1,7 @@
-/*---------------------------------------------------------*/
-/* ----------------   Pr·ctica 8--------------------------*/
+Ôªø/*---------------------------------------------------------*/
+/* ----------------   Pr√°ctica 8--------------------------*/
 /*-----------------    2024-2   ---------------------------*/
-/*------------- Alumno:GÚmez Moctezuma Eddie Jovany ---------------*/
+/*------------- Alumno:G√≤mez Moctezuma Eddie Jovany ---------------*/
 /*------------- No. Cuenta 417009993 ---------------*/
 
 #include <Windows.h>
@@ -60,8 +60,8 @@ lastFrame = 0.0f;
 
 void getResolution(void);
 void myData(void);							// De la practica 4
-void LoadTextures(void);					// De la pr·ctica 6
-unsigned int generateTextures(char*, bool, bool);	// De la pr·ctica 6
+void LoadTextures(void);					// De la pr√°ctica 6
+unsigned int generateTextures(char*, bool, bool);	// De la pr√°ctica 6
 
 //For Keyboard
 float	movX = 0.0f,
@@ -85,10 +85,16 @@ float myVariable = 0.0f;
 glm::vec3 lightPosition(0.0f, 4.0f, -10.0f);
 glm::vec3 lightDirection(0.0f, -1.0f, -1.0f);
 
+//cambio de luz
+glm::vec3 MiLuz(0.0f, 0.0f, 0.0f);
+float contador = 0.0f;
+
 //// Light
 glm::vec3 lightColor = glm::vec3(0.7f);
 glm::vec3 diffuseColor = lightColor * glm::vec3(0.0f);
 glm::vec3 ambientColor = diffuseColor * glm::vec3(0.0f);
+
+
 
 // posiciones
 float	movAuto_x = 0.0f,
@@ -101,7 +107,7 @@ recorrido3 = false,
 recorrido4 = false;
 
 
-//Keyframes (ManipulaciÛn y dibujo)
+//Keyframes (Manipulaci√≥n y dibujo)
 float	posX = 0.0f,
 		posY = 0.0f,
 		posZ = 0.0f,
@@ -129,7 +135,7 @@ typedef struct _frame
 }FRAME;
 
 FRAME KeyFrame[MAX_FRAMES];
-int FrameIndex = 0;			//introducir n˙mero en caso de tener Key guardados
+int FrameIndex = 0;			//introducir n√∫mero en caso de tener Key guardados
 bool play = false;
 int playIndex = 0;
 
@@ -227,7 +233,22 @@ void animate(void)
 	posMiLuz.x = 150.0f * cos(myVariable);
 	posMiLuz.z = 150.0f * sin(myVariable);
 
-	myVariable += 0.1f;
+	myVariable += 0.10f;
+
+	if (contador >= 0.0f && contador < 10.0f)
+		MiLuz = glm::vec3(1.0f, 0.0f, 0.0f);
+	if (contador >= 10.0f && contador < 20.0f)
+		MiLuz = glm::vec3(1.0f, 1.0f, 1.0f);
+	if (contador >= 20.0f && contador < 30.0f)
+		MiLuz = glm::vec3(0.0f, 1.0f, 0.0f);
+	if (contador >= 30.0f && contador < 40.0f)
+		MiLuz = glm::vec3(0.0f, 0.0f, 1.0f);
+	if (contador >= 40.0f && contador < 50.0f)
+		MiLuz = glm::vec3(1.0f, 1.0f, 0.0f);
+	if (contador >= 50.0f)
+		contador = 0.0f;
+	
+	contador += 0.05f;
 
 	if (play)
 	{
@@ -263,7 +284,7 @@ void animate(void)
 		}
 	}
 
-	//VehÌculo
+	//Veh√≠culo
 	if (animacion)
 	{
 		movAuto_x += 3.0f;
@@ -494,7 +515,7 @@ int main() {
 	ModelAnim elvis("resources/objects/Elvis/elvis.dae");
 	elvis.initShaders(animShader.ID);
 
-	//InicializaciÛn de KeyFrames
+	//Inicializaci√≥n de KeyFrames
 	for (int i = 0; i < MAX_FRAMES; i++)
 	{
 		KeyFrame[i].posX = 0;
@@ -558,8 +579,10 @@ int main() {
 		staticShader.setFloat("pointLight[1].quadratic", 0.032f);
 
 		staticShader.setVec3("pointLight[2].position", posMiLuz);
-		staticShader.setVec3("pointLight[2].ambient", glm::vec3(0.8f, 0.0f, 0.0f));
-		staticShader.setVec3("pointLight[2].diffuse", glm::vec3(1.0f, 0.0f, 0.0f));
+		//staticShader.setVec3("pointLight[2].ambient", glm::vec3(0.8f, 0.0f, 0.0f));
+		//staticShader.setVec3("pointLight[2].diffuse", glm::vec3(1.0f, 0.0f, 0.0f));
+		staticShader.setVec3("pointLight[2].ambient", MiLuz);
+		staticShader.setVec3("pointLight[2].diffuse", MiLuz);
 		staticShader.setVec3("pointLight[2].specular", glm::vec3(0.0f, 0.0f, 0.0f));
 		staticShader.setFloat("pointLight[2].constant", 0.001f);
 		staticShader.setFloat("pointLight[2].linear", 0.009f);
@@ -571,7 +594,7 @@ int main() {
 		staticShader.setVec3("spotLight[0].diffuse", glm::vec3(1.0f, 1.0f, 1.0f));
 		staticShader.setVec3("spotLight[0].specular", glm::vec3(0.0f, 0.0f, 0.0f));
 		staticShader.setFloat("spotLight[0].cutOff", glm::cos(glm::radians(10.0f)));
-		staticShader.setFloat("spotLight[0].outerCutOff", glm::cos(glm::radians(10.0f)));
+		staticShader.setFloat("spotLight[0].outerCutOff", glm::cos(glm::radians(12.0f)));
 		staticShader.setFloat("spotLight[0].constant", 0.01f);
 		staticShader.setFloat("spotLight[0].linear", 0.0009f);
 		staticShader.setFloat("spotLight[0].quadratic", 0.0005f);
@@ -639,7 +662,7 @@ int main() {
 
 		//Tener Piso como referencia
 		glBindVertexArray(VAO[2]);
-		//Colocar cÛdigo aquÌ
+		//Colocar c√≥digo aqu√≠
 		modelOp = glm::scale(glm::mat4(1.0f), glm::vec3(40.0f, 2.0f, 40.0f));
 		modelOp = glm::translate(modelOp, glm::vec3(0.0f, -1.0f, 0.0f));
 		modelOp = glm::rotate(modelOp, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
@@ -649,7 +672,7 @@ int main() {
 		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 
 		glBindVertexArray(VAO[0]);
-		//Colocar cÛdigo aquÌ
+		//Colocar c√≥digo aqu√≠
 		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 10.0f, 0.0f));
 		modelOp = glm::scale(modelOp, glm::vec3(5.0f, 5.0f, 1.0f));
 		myShader.setMat4("model", modelOp);
