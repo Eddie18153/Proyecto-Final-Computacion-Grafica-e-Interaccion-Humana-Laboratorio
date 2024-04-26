@@ -567,7 +567,7 @@ int main() {
 		//Setup Advanced Lights
 		staticShader.setVec3("viewPos", camera.Position);
 		staticShader.setVec3("dirLight.direction", lightDirection); /// para representar luz como el sol
-		staticShader.setVec3("dirLight.ambient", glm::vec3(0.0f));
+		staticShader.setVec3("dirLight.ambient", glm::vec3(1.0f));
 		staticShader.setVec3("dirLight.diffuse", glm::vec3(0.0f, 0.0f, 0.0f));
 		staticShader.setVec3("dirLight.specular", glm::vec3(0.0f, 0.0f, 0.0f));
 		/// fuente de luz posicional
@@ -591,8 +591,10 @@ int main() {
 		staticShader.setVec3("pointLight[2].position", posMiLuz);
 		//staticShader.setVec3("pointLight[2].ambient", glm::vec3(0.8f, 0.0f, 0.0f));
 		//staticShader.setVec3("pointLight[2].diffuse", glm::vec3(1.0f, 0.0f, 0.0f));
-		staticShader.setVec3("pointLight[2].ambient", MiLuz);
-		staticShader.setVec3("pointLight[2].diffuse", MiLuz);
+		//staticShader.setVec3("pointLight[2].ambient", MiLuz);
+		//staticShader.setVec3("pointLight[2].diffuse", MiLuz);
+		staticShader.setVec3("pointLight[2].ambient", glm::vec3(0.0f, 0.0f, 0.0f));
+		staticShader.setVec3("pointLight[2].diffuse", glm::vec3(0.0f, 0.0f, 0.0f));
 		staticShader.setVec3("pointLight[2].specular", glm::vec3(0.0f, 0.0f, 0.0f));
 		staticShader.setFloat("pointLight[2].constant", 0.001f);
 		staticShader.setFloat("pointLight[2].linear", 0.009f);
@@ -600,8 +602,8 @@ int main() {
 
 		staticShader.setVec3("spotLight[0].position", glm::vec3(camera.Position.x, camera.Position.y, camera.Position.z));
 		staticShader.setVec3("spotLight[0].direction", camera.Front);
-		staticShader.setVec3("spotLight[0].ambient", glm::vec3(1.0f, 1.0f, 1.0f));
-		staticShader.setVec3("spotLight[0].diffuse", glm::vec3(1.0f, 1.0f, 1.0f));
+		staticShader.setVec3("spotLight[0].ambient", glm::vec3(0.0f, 0.0f, 0.0f));
+		staticShader.setVec3("spotLight[0].diffuse", glm::vec3(0.0f, 0.0f, 0.0f));
 		staticShader.setVec3("spotLight[0].specular", glm::vec3(0.0f, 0.0f, 0.0f));
 		staticShader.setFloat("spotLight[0].cutOff", glm::cos(glm::radians(10.0f)));
 		staticShader.setFloat("spotLight[0].outerCutOff", glm::cos(glm::radians(12.0f)));
