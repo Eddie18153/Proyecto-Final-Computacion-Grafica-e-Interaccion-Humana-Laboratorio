@@ -470,12 +470,12 @@ int main() {
 	Shader animShader("Shaders/anim.vs", "Shaders/anim.fs");	//To use with animated models 
 	
 	vector<std::string> faces{
-		"resources/skybox/right.jpg",
-		"resources/skybox/left.jpg",
-		"resources/skybox/top.jpg",
-		"resources/skybox/bottom.jpg",
-		"resources/skybox/front.jpg",
-		"resources/skybox/back.jpg"
+		"resources/skybox/right.png",
+		"resources/skybox/left.png",
+		"resources/skybox/top.png",
+		"resources/skybox/bottom.png",
+		"resources/skybox/front.png",
+		"resources/skybox/back.png"
 	};
 
 	Skybox skybox = Skybox(faces);
@@ -516,7 +516,9 @@ int main() {
 	Model centroComercial7("resources/objects/Centro Comercial Lab/puertas_tapetes.obj");
 	Model centroComercial8("resources/objects/Centro Comercial Lab/fachadas_tiendas.obj");
 	Model centroComercial9("resources/objects/Centro Comercial Lab/bote_basura1.obj");
-
+	Model centroComercial10("resources/objects/Centro Comercial Lab/mascotas.obj");
+	Model centroComercial11("resources/objects/Centro Comercial Lab/gas.obj");
+	Model centroComercial12("resources/objects/Centro Comercial Lab/coffe.obj");
 
 
 	ModelAnim animacionPersonaje("resources/objects/Personaje1/Arm.dae");
@@ -934,6 +936,21 @@ int main() {
 		modelOp = glm::scale(modelOp, glm::vec3(0.3f));
 		staticShader.setMat4("model", modelOp);
 		centroComercial9.Draw(staticShader);
+
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
+		modelOp = glm::scale(modelOp, glm::vec3(0.3f));
+		staticShader.setMat4("model", modelOp);
+		centroComercial10.Draw(staticShader);
+
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
+		modelOp = glm::scale(modelOp, glm::vec3(0.3f));
+		staticShader.setMat4("model", modelOp);
+		centroComercial11.Draw(staticShader);
+
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
+		modelOp = glm::scale(modelOp, glm::vec3(0.3f));
+		staticShader.setMat4("model", modelOp);
+		centroComercial12.Draw(staticShader);
 
 		//-------------------------------------------------------------------------------------
 		// draw skybox as last
