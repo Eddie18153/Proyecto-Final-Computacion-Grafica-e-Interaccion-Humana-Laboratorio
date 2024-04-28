@@ -521,6 +521,7 @@ int main() {
 	Model centroComercial12("resources/objects/Centro Comercial Lab/coffe.obj");
 
 
+
 	ModelAnim animacionPersonaje("resources/objects/Personaje1/Arm.dae");
 	animacionPersonaje.initShaders(animShader.ID);
 
