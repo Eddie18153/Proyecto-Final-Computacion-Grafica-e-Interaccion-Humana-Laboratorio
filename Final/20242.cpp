@@ -541,6 +541,7 @@ int main() {
 	Model centroComercial31("resources/objects/Tienda Ropa Lab S/ventanas.obj");
 	Model centroComercial32("resources/objects/Tienda Ropa Lab S/vestidor.obj");
 	Model centroComercial33("resources/objects/Centro Comercial Lab/fachadas1.obj");
+	Model centroComercial34("resources/objects/Centro Comercial Lab/fachadas2.obj");
 
 
 
@@ -1079,6 +1080,11 @@ int main() {
 		modelOp = glm::scale(modelOp, glm::vec3(0.3f));
 		staticShader.setMat4("model", modelOp);
 		centroComercial33.Draw(staticShader);
+
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
+		modelOp = glm::scale(modelOp, glm::vec3(0.3f));
+		staticShader.setMat4("model", modelOp);
+		centroComercial34.Draw(staticShader);
 
 		//-------------------------------------------------------------------------------------
 		// draw skybox as last
