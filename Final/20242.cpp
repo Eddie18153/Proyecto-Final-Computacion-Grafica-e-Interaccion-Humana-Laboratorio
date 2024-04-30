@@ -493,17 +493,9 @@ int main() {
 	Model casaVieja("resources/objects/casa/OldHouse.obj");
 	//Model cubo("resources/objects/cubo/cube02.obj");
 	Model casaDoll("resources/objects/casa/DollHouse.obj");
-	Model CabezaAcuaman("resources/objects/Acuaman/cabeza.obj");
-	Model CuerpoAcuaman("resources/objects/Acuaman/cuerpo.obj");
-	Model BrazoizqAcuaman("resources/objects/Acuaman/brazoizq.obj");
-	Model BrazoderAcuaman("resources/objects/Acuaman/brazoder.obj");
-	Model PiernaderAcuaman("resources/objects/Acuaman/piernader.obj");
-	Model PiernaizqAcuaman("resources/objects/Acuaman/piernaizq.obj");
-	Model BotaizqAcuaman("resources/objects/Acuaman/botaizq.obj");
-	Model BotaAcuaman("resources/objects/Acuaman/bota.obj");
 	Model CasaBrujas("resources/objects/Casita/CasaBrujas.obj");
 	Model Parca("resources/objects/parca/parca.obj");
-	Model Cubito("resources/objects/Cubito/cubito.obj");
+	//Model Cubito("resources/objects/Cubito/cubito.obj");
 	Model Arbol("resources/objects/arbol/arbol.obj");
 
 	// Modelos Centro Comercial
@@ -541,7 +533,11 @@ int main() {
 	Model centroComercial31("resources/objects/Tienda Ropa Lab S/ventanas.obj");
 	Model centroComercial32("resources/objects/Tienda Ropa Lab S/vestidor.obj");
 	Model centroComercial33("resources/objects/Centro Comercial Lab/fachadas1.obj");
-	Model centroComercial34("resources/objects/Centro Comercial Lab/fachadas2.obj");
+	Model centroComercial34("resources/objects/Centro Comercial Lab/fachadas2_2.obj");
+	Model centroComercial35("resources/objects/Centro Comercial Lab/bote_basura2.obj");
+	Model centroComercial36("resources/objects/Centro Comercial Lab/fachadas4.obj");
+	Model centroComercial37("resources/objects/Centro Comercial Lab/columna.obj");
+	Model centroComercial38("resources/objects/Centro Comercial Lab/bancas2.obj");
 
 
 
@@ -745,18 +741,14 @@ int main() {
 		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-40.0f, 0.0f, 50.0f));
 		modelOp = glm::scale(modelOp, glm::vec3(3.5f));
 		staticShader.setMat4("model", modelOp);
-		CasaBrujas.Draw(staticShader);
+		//CasaBrujas.Draw(staticShader);
 
 
-		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 30.0f, 50.0f));
-		modelOp = glm::scale(modelOp, glm::vec3(2.5f));
-		staticShader.setMat4("model", modelOp);
-		Cubito.Draw(staticShader);
 
 		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(250.0f, 0.0f, -10.0f));
 		modelOp = glm::rotate(modelOp, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		staticShader.setMat4("model", modelOp);
-		casaDoll.Draw(staticShader);
+		//casaDoll.Draw(staticShader);
 
 		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, -1.75f, 0.0f));
 		modelOp = glm::scale(modelOp, glm::vec3(0.2f));
@@ -767,19 +759,19 @@ int main() {
 		modelOp = glm::scale(modelOp, glm::vec3(5.0f));
 		staticShader.setMat4("model", modelOp);
 		staticShader.setVec3("dirLight.specular", glm::vec3(0.0f, 0.0f, 0.0f));
-		casaVieja.Draw(staticShader);
+		//casaVieja.Draw(staticShader);
 
 		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(40.0f, 0.0f, 70.0f));
 		modelOp = glm::scale(modelOp, glm::vec3(0.5f));
 		staticShader.setMat4("model", modelOp);
 		staticShader.setVec3("dirLight.specular", glm::vec3(0.0f, 0.0f, 0.0f));
-		Parca.Draw(staticShader);
+		//Parca.Draw(staticShader);
 
 		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(100.0f, 0.0f, 70.0f));
 		modelOp = glm::scale(modelOp, glm::vec3(5.0f));
 		staticShader.setMat4("model", modelOp);
 		staticShader.setVec3("dirLight.specular", glm::vec3(0.0f, 0.0f, 0.0f));
-		Arbol.Draw(staticShader);
+		//Arbol.Draw(staticShader);
 		
 
 
@@ -819,46 +811,6 @@ int main() {
 		// -------------------------------------------------------------------------------------------------------------------------
 		// Personaje
 		// -------------------------------------------------------------------------------------------------------------------------
-		
-		glm::mat4 tmpCuerpoAquaman = glm::mat4(1.0f); ///matriz para guardar el estado del cuerpo
-		glm::mat4 tmpPiernaAquaman = glm::mat4(1.0f); ///matriz para guardar el estado de las botas
-		
-		tmpCuerpoAquaman = modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(6.0f, 0.0f, 0.0f));
-		staticShader.setMat4("model", modelOp);
-		CuerpoAcuaman.Draw(staticShader);//cuerpo
-		
-		modelOp = glm::translate(tmpCuerpoAquaman, glm::vec3(0.0f, 1.5f, 0.0f));
-		//modelOp = glm::rotate(modelOp, glm::radians(rotbrazoizq), glm::vec3(1.0f, 0.0f, 0.0f));
-		staticShader.setMat4("model", modelOp);
-		CabezaAcuaman.Draw(staticShader);//cabeza	
-		
-		modelOp = glm::translate(tmpCuerpoAquaman, glm::vec3(0.75f, 1.5f, 0.0f));
-		//modelOp = glm::rotate(modelOp, glm::radians(rotbrazoizq), glm::vec3(1.0f, 0.0f, 0.0f));
-		staticShader.setMat4("model", modelOp);
-		BrazoizqAcuaman.Draw(staticShader);//brazo izquierdo
-		
-		modelOp = glm::translate(tmpCuerpoAquaman, glm::vec3(-0.75f, 1.5f, 0.0f));
-		//modelOp = glm::rotate(modelOp, glm::radians(rotbrazoizq), glm::vec3(1.0f, 0.0f, 0.0f));
-		staticShader.setMat4("model", modelOp);
-		BrazoderAcuaman.Draw(staticShader);//brazo der
-		
-		modelOp = glm::translate(tmpCuerpoAquaman, glm::vec3(-0.5f, 0.0f, -0.1f));
-		tmpPiernaAquaman = modelOp = glm::rotate(modelOp, glm::radians(rotbrazoizq), glm::vec3(1.0f, 0.0f, 0.0f));
-		staticShader.setMat4("model", modelOp);
-		PiernaderAcuaman.Draw(staticShader);//piernader
-
-		modelOp = glm::translate(tmpPiernaAquaman, glm::vec3(0.0f, -0.9f, 0.0f));
-		staticShader.setMat4("model", modelOp);
-		BotaAcuaman.Draw(staticShader);//bota 
-
-		modelOp = glm::translate(tmpCuerpoAquaman, glm::vec3(0.5f, 0.0f, 0.1f));
-		tmpPiernaAquaman = modelOp = glm::rotate(modelOp, glm::radians(-rotbrazoizq), glm::vec3(1.0f, 0.0f, 0.0f));
-		staticShader.setMat4("model", modelOp);
-		PiernaizqAcuaman.Draw(staticShader);//piernaizq
-
-		modelOp = glm::translate(tmpPiernaAquaman, glm::vec3(0.0f, -0.9f, 0.0f));
-		staticShader.setMat4("model", modelOp);
-		BotaizqAcuaman.Draw(staticShader);//bota izq
 
 
 		
@@ -1085,6 +1037,26 @@ int main() {
 		modelOp = glm::scale(modelOp, glm::vec3(0.3f));
 		staticShader.setMat4("model", modelOp);
 		centroComercial34.Draw(staticShader);
+
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
+		modelOp = glm::scale(modelOp, glm::vec3(0.3f));
+		staticShader.setMat4("model", modelOp);
+		centroComercial35.Draw(staticShader);
+
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
+		modelOp = glm::scale(modelOp, glm::vec3(0.3f));
+		staticShader.setMat4("model", modelOp);
+		centroComercial36.Draw(staticShader);
+
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
+		modelOp = glm::scale(modelOp, glm::vec3(0.3f));
+		staticShader.setMat4("model", modelOp);
+		centroComercial37.Draw(staticShader);
+
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
+		modelOp = glm::scale(modelOp, glm::vec3(0.3f));
+		staticShader.setMat4("model", modelOp);
+		centroComercial38.Draw(staticShader);
 
 		//-------------------------------------------------------------------------------------
 		// draw skybox as last
