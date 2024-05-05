@@ -508,9 +508,9 @@ int main() {
 	Model centroComercial7("resources/objects/Centro Comercial Lab/puertas_tapetes.obj");
 	Model centroComercial8("resources/objects/Centro Comercial Lab/fachadas_tiendas.obj");
 	Model centroComercial9("resources/objects/Centro Comercial Lab/bote_basura1.obj");
-	Model centroComercial10("resources/objects/Centro Comercial Lab/mascotas.obj");
+	Model centroComercial10("resources/objects/Tienda de mascotas/animales.obj");
 	Model centroComercial11("resources/objects/Centro Comercial Lab/gas.obj");
-	Model centroComercial12("resources/objects/Centro Comercial Lab/coffe.obj");
+	Model centroComercial12("resources/objects/Tienda de mascotas/tiendamascotas.obj");
 
 	Model centroComercial13("resources/objects/Tienda Ropa Lab S/armario.obj");
 	Model centroComercial14("resources/objects/Tienda Ropa Lab S/carrito1.obj");
