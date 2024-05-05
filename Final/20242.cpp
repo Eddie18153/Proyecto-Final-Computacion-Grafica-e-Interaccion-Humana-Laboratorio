@@ -547,6 +547,23 @@ int main() {
 	Model centroComercial45("resources/objects/Centro Comercial Lab/banca6.obj");
 	Model centroComercial46("resources/objects/Centro Comercial Lab/banca7.obj");
 	Model centroComercial47("resources/objects/Centro Comercial Lab/banos2.obj");
+	Model centroComercial48("resources/objects/Tienda de juguetes/anaquelesjuguetes.obj");
+	Model centroComercial49("resources/objects/Tienda de juguetes/juguetes.obj");
+	Model centroComercial50("resources/objects/Tienda de juguetes/puerta.obj");
+	Model centroComercial51("resources/objects/Tienda de juguetes/tiendajuguetes.obj");
+	Model centroComercial52("resources/objects/locales2/locales2dopiso.obj");
+	Model centroComercial53("resources/objects/fastfood/sillasfast.obj");
+	Model centroComercial54("resources/objects/Banco/atm.obj");
+	Model centroComercial55("resources/objects/carrosplaza/carrosplaza.obj");
+	Model centroComercial56("resources/objects/carrosplaza/carrosplaza.obj");
+	//Model centroComercial57("resources/objects/calle/calle/calle.obj");
+	Model centroComercial58("resources/objects/calle/edificio1/edificio1.obj");
+	Model centroComercial59("resources/objects/calle/edificio2/edificio2.obj");
+	Model centroComercial60("resources/objects/calle/edificio3/edificio3.obj");
+	Model centroComercial61("resources/objects/calle/edificio4/edificio4.obj");
+	Model centroComercial62("resources/objects/calle/edificio5/edificio5.obj");
+	Model centroComercial63("resources/objects/calle/edificio6/edificio6.obj");
+	Model centroComercial64("resources/objects/calle/elementoscalle/elementoscalle1.obj");
 
 
 
@@ -1114,6 +1131,109 @@ int main() {
 		modelOp = glm::scale(modelOp, glm::vec3(0.3f));
 		staticShader.setMat4("model", modelOp);
 		centroComercial47.Draw(staticShader);
+
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
+		modelOp = glm::scale(modelOp, glm::vec3(0.3f));
+		staticShader.setMat4("model", modelOp);
+		centroComercial48.Draw(staticShader);
+
+
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
+		modelOp = glm::scale(modelOp, glm::vec3(0.3f));
+		staticShader.setMat4("model", modelOp);
+		centroComercial49.Draw(staticShader);
+
+
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
+		modelOp = glm::scale(modelOp, glm::vec3(0.3f));
+		staticShader.setMat4("model", modelOp);
+		centroComercial50.Draw(staticShader);
+
+
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
+		modelOp = glm::scale(modelOp, glm::vec3(0.3f));
+		staticShader.setMat4("model", modelOp);
+		centroComercial51.Draw(staticShader);
+
+
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
+		modelOp = glm::scale(modelOp, glm::vec3(0.3f));
+		staticShader.setMat4("model", modelOp);
+		centroComercial52.Draw(staticShader);
+
+
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
+		modelOp = glm::scale(modelOp, glm::vec3(0.3f));
+		staticShader.setMat4("model", modelOp);
+		centroComercial53.Draw(staticShader);
+
+
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
+		modelOp = glm::scale(modelOp, glm::vec3(0.3f));
+		staticShader.setMat4("model", modelOp);
+		centroComercial54.Draw(staticShader);
+
+
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
+		modelOp = glm::scale(modelOp, glm::vec3(0.3f));
+		staticShader.setMat4("model", modelOp);
+		centroComercial55.Draw(staticShader);
+
+
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
+		modelOp = glm::scale(modelOp, glm::vec3(0.3f));
+		staticShader.setMat4("model", modelOp);
+		centroComercial56.Draw(staticShader);
+
+
+		/*modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
+		modelOp = glm::scale(modelOp, glm::vec3(0.3f));
+		staticShader.setMat4("model", modelOp);
+		centroComercial57.Draw(staticShader);*/
+
+
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
+		modelOp = glm::scale(modelOp, glm::vec3(0.3f));
+		staticShader.setMat4("model", modelOp);
+		centroComercial58.Draw(staticShader);
+
+
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
+		modelOp = glm::scale(modelOp, glm::vec3(0.3f));
+		staticShader.setMat4("model", modelOp);
+		centroComercial59.Draw(staticShader);
+
+
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
+		modelOp = glm::scale(modelOp, glm::vec3(0.3f));
+		staticShader.setMat4("model", modelOp);
+		centroComercial60.Draw(staticShader);
+
+
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
+		modelOp = glm::scale(modelOp, glm::vec3(0.3f));
+		staticShader.setMat4("model", modelOp);
+		centroComercial61.Draw(staticShader);
+
+
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
+		modelOp = glm::scale(modelOp, glm::vec3(0.3f));
+		staticShader.setMat4("model", modelOp);
+		centroComercial62.Draw(staticShader);
+
+
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
+		modelOp = glm::scale(modelOp, glm::vec3(0.3f));
+		staticShader.setMat4("model", modelOp);
+		centroComercial63.Draw(staticShader);
+
+
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
+		modelOp = glm::scale(modelOp, glm::vec3(0.3f));
+		staticShader.setMat4("model", modelOp);
+		centroComercial64.Draw(staticShader);
+
+
 
 		//-------------------------------------------------------------------------------------
 		// draw skybox as last
