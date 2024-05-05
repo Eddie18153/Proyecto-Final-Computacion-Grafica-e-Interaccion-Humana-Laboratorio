@@ -556,14 +556,17 @@ int main() {
 	Model centroComercial54("resources/objects/Banco/atm.obj");
 	Model centroComercial55("resources/objects/carrosplaza/carrosplaza.obj");
 	Model centroComercial56("resources/objects/carrosplaza/carrosplaza.obj");
-	//Model centroComercial57("resources/objects/calle/calle/calle.obj");
+	Model centroComercial57("resources/objects/calle/calle/calle.obj");
 	Model centroComercial58("resources/objects/calle/edificio1/edificio1.obj");
-	Model centroComercial59("resources/objects/calle/edificio2/edificio2.obj");
+	//Model centroComercial59("resources/objects/calle/edificio2/edificio2.obj");
 	Model centroComercial60("resources/objects/calle/edificio3/edificio3.obj");
 	Model centroComercial61("resources/objects/calle/edificio4/edificio4.obj");
 	Model centroComercial62("resources/objects/calle/edificio5/edificio5.obj");
 	Model centroComercial63("resources/objects/calle/edificio6/edificio6.obj");
 	Model centroComercial64("resources/objects/calle/elementoscalle/elementoscalle1.obj");
+	Model centroComercial65("resources/objects/calle/elementoscalle/elementoscalle2.obj");
+	Model centroComercial66("resources/objects/calle/elementoscalle/elementoscalle3.obj");
+	Model centroComercial67("resources/objects/calle/elementoscalle/elementoscalle4.obj");
 
 
 
@@ -726,13 +729,13 @@ int main() {
 		//Tener Piso como referencia
 		glBindVertexArray(VAO[2]);
 		//Colocar código aquí
-		modelOp = glm::scale(glm::mat4(1.0f), glm::vec3(40.0f, 2.0f, 40.0f));
+		/*modelOp = glm::scale(glm::mat4(1.0f), glm::vec3(40.0f, 2.0f, 40.0f));
 		modelOp = glm::translate(modelOp, glm::vec3(0.0f, -1.0f, 0.0f));
 		modelOp = glm::rotate(modelOp, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
 		myShader.setMat4("model", modelOp);
 		myShader.setVec3("aColor", 1.0f, 1.0f, 1.0f);
 		glBindTexture(GL_TEXTURE_2D, t_ladrillos);
-		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);*/
 
 		glBindVertexArray(VAO[0]);
 		//Colocar código aquí
@@ -1148,7 +1151,7 @@ int main() {
 		modelOp = glm::scale(modelOp, glm::vec3(0.3f));
 		staticShader.setMat4("model", modelOp);
 		centroComercial50.Draw(staticShader);
-
+		
 
 		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
 		modelOp = glm::scale(modelOp, glm::vec3(0.3f));
@@ -1186,22 +1189,22 @@ int main() {
 		centroComercial56.Draw(staticShader);
 
 
-		/*modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
 		modelOp = glm::scale(modelOp, glm::vec3(0.3f));
 		staticShader.setMat4("model", modelOp);
-		centroComercial57.Draw(staticShader);*/
+		centroComercial57.Draw(staticShader);
 
 
 		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
 		modelOp = glm::scale(modelOp, glm::vec3(0.3f));
 		staticShader.setMat4("model", modelOp);
 		centroComercial58.Draw(staticShader);
-
-
+		
+		/*
 		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
 		modelOp = glm::scale(modelOp, glm::vec3(0.3f));
 		staticShader.setMat4("model", modelOp);
-		centroComercial59.Draw(staticShader);
+		centroComercial59.Draw(staticShader);*/
 
 
 		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
@@ -1232,6 +1235,23 @@ int main() {
 		modelOp = glm::scale(modelOp, glm::vec3(0.3f));
 		staticShader.setMat4("model", modelOp);
 		centroComercial64.Draw(staticShader);
+
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
+		modelOp = glm::scale(modelOp, glm::vec3(0.3f));
+		staticShader.setMat4("model", modelOp);
+		centroComercial65.Draw(staticShader);
+
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
+		modelOp = glm::scale(modelOp, glm::vec3(0.3f));
+		staticShader.setMat4("model", modelOp);
+		centroComercial66.Draw(staticShader);
+
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
+		modelOp = glm::scale(modelOp, glm::vec3(0.3f));
+		staticShader.setMat4("model", modelOp);
+		centroComercial67.Draw(staticShader);
+
+		
 
 
 
