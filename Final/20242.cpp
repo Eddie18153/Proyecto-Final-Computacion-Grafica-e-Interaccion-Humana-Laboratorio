@@ -15,6 +15,9 @@
 #include <time.h>
 #define STB_IMAGE_IMPLEMENTATION
 #include <stb_image.h>					//Texture
+//Biblioteca de musica
+#include <irrKlang.h>
+using namespace irrklang;
 
 #define SDL_MAIN_HANDLED
 #include <SDL3/SDL.h>
@@ -579,6 +582,14 @@ int main() {
 	ModelAnim elvis("resources/objects/Elvis/elvis.dae");
 	elvis.initShaders(animShader.ID);
 
+	//configuracion del sonido
+	
+	ISoundEngine* engine = createIrrKlangDevice();
+	ISoundEngine* engine2 = createIrrKlangDevice();
+	engine->play2D("media/centrocomercial.mp3", true);
+
+
+
 	//Inicialización de KeyFrames
 	for (int i = 0; i < MAX_FRAMES; i++)
 	{
@@ -614,6 +625,8 @@ int main() {
 		// ------
 		glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+
 
 		// don't forget to enable shader before setting uniforms
 		//Setup shader for static models
@@ -675,6 +688,9 @@ int main() {
 		viewOp = camera.GetViewMatrix();
 		staticShader.setMat4("projection", projectionOp);
 		staticShader.setMat4("view", viewOp);
+
+		
+
 
 		//Setup shader for primitives
 		myShader.use();
@@ -1280,6 +1296,10 @@ int main() {
 	glDeleteBuffers(2, VBO);
 	//skybox.Terminate();
 	glfwTerminate();
+	engine->drop();
+	engine2->drop();
+
+
 	return 0;
 }
 
