@@ -502,7 +502,7 @@ int main() {
 	//Model Arbol("resources/objects/arbol/arbol.obj");
 
 	// Modelos Centro Comercial
-	/*Model centroComercial1("resources/objects/Centro Comercial Lab/paredes.obj");
+	Model centroComercial1("resources/objects/Centro Comercial Lab/paredes.obj");
 	Model centroComercial2("resources/objects/Centro Comercial Lab/pasto.obj");
 	Model centroComercial3("resources/objects/Centro Comercial Lab/piso1.obj");
 	Model centroComercial4("resources/objects/Centro Comercial Lab/piso2.obj");
@@ -561,7 +561,7 @@ int main() {
 	Model centroComercial56("resources/objects/carrosplaza/carrosplaza.obj");
 	Model centroComercial57("resources/objects/calle/calle/calle.obj");
 	Model centroComercial58("resources/objects/calle/edificio1/edificio1.obj");
-	//Model centroComercial59("resources/objects/calle/edificio2/edificio2.obj");
+	Model centroComercial59("resources/objects/fastfood/fastfood2.obj");
 	Model centroComercial60("resources/objects/calle/edificio3/edificio3.obj");
 	Model centroComercial61("resources/objects/calle/edificio4/edificio4.obj");
 	Model centroComercial62("resources/objects/calle/edificio5/edificio5.obj");
@@ -569,7 +569,7 @@ int main() {
 	Model centroComercial64("resources/objects/calle/elementoscalle/elementoscalle1.obj");
 	Model centroComercial65("resources/objects/calle/elementoscalle/elementoscalle2.obj");
 	Model centroComercial66("resources/objects/calle/elementoscalle/elementoscalle3.obj");
-	Model centroComercial67("resources/objects/calle/elementoscalle/elementoscalle4.obj");*/
+	Model centroComercial67("resources/objects/calle/elementoscalle/elementoscalle4.obj");
 	Model centroComercial68("resources/objects/Tienda de mascotas/estantemas.obj");
 
 
@@ -915,11 +915,11 @@ int main() {
 		modelOp = glm::translate(modelOp, glm::vec3(0.0f, 2.5f, 0));
 		staticShader.setMat4("model", modelOp);
 		cabeza.Draw(staticShader);*/
-
+		
 
 		/*********************************************** Modelos Centro Comercial *********************************************/
 		
-		/*modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
 		modelOp = glm::scale(modelOp, glm::vec3(0.3f));
 		staticShader.setMat4("model", modelOp);
 		centroComercial1.Draw(staticShader);
@@ -1219,13 +1219,13 @@ int main() {
 		staticShader.setMat4("model", modelOp);
 		centroComercial58.Draw(staticShader);
 		
-		/*
+	
 		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
 		modelOp = glm::scale(modelOp, glm::vec3(0.3f));
 		staticShader.setMat4("model", modelOp);
-		centroComercial59.Draw(staticShader);*/
+		centroComercial59.Draw(staticShader);
 
-/*
+
 		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
 		modelOp = glm::scale(modelOp, glm::vec3(0.3f));
 		staticShader.setMat4("model", modelOp);
@@ -1268,7 +1268,7 @@ int main() {
 		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
 		modelOp = glm::scale(modelOp, glm::vec3(0.3f));
 		staticShader.setMat4("model", modelOp);
-		centroComercial67.Draw(staticShader); */
+		centroComercial67.Draw(staticShader); 
 
 		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
 		modelOp = glm::scale(modelOp, glm::vec3(0.3f));
