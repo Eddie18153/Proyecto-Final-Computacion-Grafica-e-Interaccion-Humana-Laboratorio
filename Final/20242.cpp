@@ -571,7 +571,7 @@ int main() {
 	Model centroComercial65("resources/objects/calle/elementoscalle/elementoscalle2.obj");
 	Model centroComercial66("resources/objects/calle/elementoscalle/elementoscalle3.obj");
 	Model centroComercial67("resources/objects/calle/elementoscalle/elementoscalle4.obj");
-	Model centroComercial68("resources/objects/Tienda de mascotas/estantemas.obj")
+	Model centroComercial68("resources/objects/Tienda de mascotas/estantemas.obj");
 	Model centroComercial69("resources/objects/calle/edificio7/edificio7.obj");
 	Model centroComercial70("resources/objects/calle/edificio8/edificio8.obj");
 	Model centroComercial71("resources/objects/carros2/carros2.obj");
@@ -871,7 +871,7 @@ int main() {
 		// -------------------------------------------------------------------------------------------------------------------------
 		// Just in case
 		// -------------------------------------------------------------------------------------------------------------------------
-		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(posX, posY, posZ));
+		/*modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(posX, posY, posZ));
 		tmp = modelOp = glm::rotate(modelOp, glm::radians(giroMonito), glm::vec3(0.0f, 1.0f, 0.0));
 		staticShader.setMat4("model", modelOp);
 		torso.Draw(staticShader);
