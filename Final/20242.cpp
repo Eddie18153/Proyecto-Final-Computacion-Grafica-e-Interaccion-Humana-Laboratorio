@@ -339,7 +339,7 @@ void animate(void)
 
 	//Auto tienda de juguetes
 	// Variables para el movimiento en forma de 8
-	float radius = 100.0f; // Radio de la figura
+	float radius = 3.0f; // Radio de la figura
 	float centerX = 0.0f; // Centro en el eje X
 	float centerY = 0.0f; // Centro en el eje Y
 	float angularSpeed = 1.0f; // Velocidad angular
@@ -351,18 +351,25 @@ void animate(void)
 		float forwardX = forwardSpeed * cos(angle); // Componente X del movimiento hacia adelante
 		float forwardZ = forwardSpeed * sin(angle); // Componente Z del movimiento hacia adelante
 
-		posMiLuz.x = movAutoJ_x = centerX + radius * sin(2 * angle) + forwardX; // Ecuación paramétrica para el eje X
-		posMiLuz.z = movAutoJ_z = centerY + radius * sin(angle) + forwardZ; // Ecuación paramétrica para el eje Z
+		movAutoJ_x = centerX + radius * sin(2 * angle) + forwardX; // Ecuación paramétrica para el eje X
+		movAutoJ_z = centerY + radius * sin(angle) + forwardZ; // Ecuación paramétrica para el eje Z
+
+		posMiLuz.x = 145.0f;
+		posMiLuz.y = 19.45f;
+		posMiLuz.z = 42.0f;
+
+		posMiLuz.x += movAutoJ_x;
+		posMiLuz.z += movAutoJ_z;
 
 		orientaAutoJ -= angularSpeed;
-
 		if (orientaAutoJ <= 0.0f && orientaAutoJ > -180.0f)
 			MiLuz = glm::vec3(1.0f, 0.0f, 0.0f);
-		if (orientaAutoJ <= 180.0f)
+		if (orientaAutoJ <= -180.0f)
 			MiLuz = glm::vec3(0.0f, 0.0f, 1.0f);
 
 		if (orientaAutoJ <= -360.0f) {
 			orientaAutoJ += 360.0f;
+			MiLuz = glm::vec3(0.0f, 0.0f, 0.0f);
 			recorridoAutoJ = 0; // Reiniciar la animación
 		}
 	}
@@ -637,7 +644,7 @@ int main() {
 	Model centroComercial57("resources/objects/calle/calle/calle.obj");
 	Model centroComercial58("resources/objects/calle/edificio1/edificio1.obj");
 	Model centroComercial59("resources/objects/fastfood/fastfood2.obj");
-	Model centroComercial60("resources/objects/calle/edificio3/edificio3.obj");
+	/*Model centroComercial60("resources/objects/calle/edificio3/edificio3.obj");
 	Model centroComercial61("resources/objects/calle/edificio4/edificio4.obj");
 	Model centroComercial62("resources/objects/calle/edificio5/edificio5.obj");
 	Model centroComercial63("resources/objects/calle/edificio6/edificio6.obj");
@@ -651,7 +658,7 @@ int main() {
 	Model centroComercial71("resources/objects/carros2/carros2.obj");
 	Model centroComercial72("resources/objects/calle/calle/peatones.obj");
 	Model centroComercial73("resources/objects/people/people1.obj");
-	Model centroComercial74("resources/objects/people/people2.obj");
+	Model centroComercial74("resources/objects/people/people2.obj");*/
 	Model centroComercial75("resources/objects/Centro Comercial Lab/fuenteP.obj");
 	Model centroComercial76("resources/objects/Centro Comercial Lab/techo.obj");
 
@@ -757,8 +764,8 @@ int main() {
 		//staticShader.setVec3("pointLight[2].ambient", glm::vec3(0.0f, 0.0f, 0.0f));
 		//staticShader.setVec3("pointLight[2].diffuse", glm::vec3(0.0f, 0.0f, 0.0f));
 		staticShader.setVec3("pointLight[2].specular", glm::vec3(0.0f, 0.0f, 0.0f));
-		staticShader.setFloat("pointLight[2].constant", 0.001f);
-		staticShader.setFloat("pointLight[2].linear", 0.009f);
+		staticShader.setFloat("pointLight[2].constant", 0.1f);
+		staticShader.setFloat("pointLight[2].linear", 0.9f);
 		staticShader.setFloat("pointLight[2].quadratic", 0.00032f);
 
 		staticShader.setVec3("spotLight[0].position", glm::vec3(camera.Position.x, camera.Position.y, camera.Position.z));
@@ -1318,7 +1325,7 @@ int main() {
 		centroComercial59.Draw(staticShader);
 
 
-		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
+		/*modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
 		modelOp = glm::scale(modelOp, glm::vec3(0.3f));
 		staticShader.setMat4("model", modelOp);
 		centroComercial60.Draw(staticShader);
@@ -1395,7 +1402,7 @@ int main() {
 		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
 		modelOp = glm::scale(modelOp, glm::vec3(0.3f));
 		staticShader.setMat4("model", modelOp);
-		centroComercial74.Draw(staticShader);
+		centroComercial74.Draw(staticShader);*/
 
 		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
 		modelOp = glm::scale(modelOp, glm::vec3(0.3f));
@@ -1447,8 +1454,9 @@ int main() {
 		// -------------------------------------------------------------------------------------------------------------------------
 		glm::mat4 tempAutoJ = glm::mat4(1.0f);
 
-		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(350.0f, 3.0f, 300.0f));
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(145.0f, 19.45f, 42.0f));
 		modelOp = glm::translate(modelOp, glm::vec3(movAutoJ_x, movAutoJ_y, movAutoJ_z));
+		modelOp = glm::scale(modelOp, glm::vec3(0.06f));
 		tempAutoJ = modelOp = glm::rotate(modelOp, glm::radians(orientaAutoJ), glm::vec3(0.0f, 1.0f, 0.0f));
 		staticShader.setMat4("model", modelOp);
 		autoJ.Draw(staticShader);
@@ -1561,6 +1569,10 @@ void my_input(GLFWwindow* window, int key, int scancode, int action, int mode)
 	//Animacion Carro B
 	if (glfwGetKey(window, GLFW_KEY_1) == GLFW_PRESS)
 		recorridoAutoB = 1;
+
+	//Animacion Carro Juguete
+	if (glfwGetKey(window, GLFW_KEY_2) == GLFW_PRESS)
+		recorridoAutoJ = 1;
 
 	//To play KeyFrame animation 
 	if (key == GLFW_KEY_P && action == GLFW_PRESS)
