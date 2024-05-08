@@ -584,7 +584,7 @@ int main() {
 
 	// Modelos Centro Comercial
 
-/*	Model centroComercial1("resources/objects/Centro Comercial Lab/paredes.obj");
+	Model centroComercial1("resources/objects/Centro Comercial Lab/paredes.obj");
 	Model centroComercial2("resources/objects/Centro Comercial Lab/pasto.obj");
 	Model centroComercial3("resources/objects/Centro Comercial Lab/piso1.obj");
 	Model centroComercial4("resources/objects/Centro Comercial Lab/piso2.obj");
@@ -631,7 +631,7 @@ int main() {
 	Model centroComercial44("resources/objects/Centro Comercial Lab/banca5.obj");
 	Model centroComercial45("resources/objects/Centro Comercial Lab/banca6.obj");
 	Model centroComercial46("resources/objects/Centro Comercial Lab/banca7.obj");
-	Model centroComercial47("resources/objects/Centro Comercial Lab/banos2.obj");*/
+	Model centroComercial47("resources/objects/Centro Comercial Lab/banos2.obj");
 	Model centroComercial48("resources/objects/Tienda de juguetes/anaquelesjuguetes.obj");
 	Model centroComercial49("resources/objects/Tienda de juguetes/juguetes.obj");
 	Model centroComercial50("resources/objects/Tienda de juguetes/puerta.obj");
@@ -644,7 +644,7 @@ int main() {
 	Model centroComercial57("resources/objects/calle/calle/calle.obj");
 	Model centroComercial58("resources/objects/calle/edificio1/edificio1.obj");
 	Model centroComercial59("resources/objects/fastfood/fastfood2.obj");
-	/*Model centroComercial60("resources/objects/calle/edificio3/edificio3.obj");
+	Model centroComercial60("resources/objects/calle/edificio3/edificio3.obj");
 	Model centroComercial61("resources/objects/calle/edificio4/edificio4.obj");
 	Model centroComercial62("resources/objects/calle/edificio5/edificio5.obj");
 	Model centroComercial63("resources/objects/calle/edificio6/edificio6.obj");
@@ -658,7 +658,7 @@ int main() {
 	Model centroComercial71("resources/objects/carros2/carros2.obj");
 	Model centroComercial72("resources/objects/calle/calle/peatones.obj");
 	Model centroComercial73("resources/objects/people/people1.obj");
-	Model centroComercial74("resources/objects/people/people2.obj");*/
+	Model centroComercial74("resources/objects/people/people2.obj");
 	Model centroComercial75("resources/objects/Centro Comercial Lab/fuenteP.obj");
 	Model centroComercial76("resources/objects/Centro Comercial Lab/techo.obj");
 
@@ -1018,7 +1018,7 @@ int main() {
 
 		/*********************************************** Modelos Centro Comercial *********************************************/
 		
-		/*modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
 		modelOp = glm::scale(modelOp, glm::vec3(0.3f));
 		staticShader.setMat4("model", modelOp);
 		centroComercial1.Draw(staticShader);
@@ -1251,7 +1251,7 @@ int main() {
 		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
 		modelOp = glm::scale(modelOp, glm::vec3(0.3f));
 		staticShader.setMat4("model", modelOp);
-		centroComercial47.Draw(staticShader);*/
+		centroComercial47.Draw(staticShader);
 
 		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
 		modelOp = glm::scale(modelOp, glm::vec3(0.3f));
@@ -1325,7 +1325,7 @@ int main() {
 		centroComercial59.Draw(staticShader);
 
 
-		/*modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
 		modelOp = glm::scale(modelOp, glm::vec3(0.3f));
 		staticShader.setMat4("model", modelOp);
 		centroComercial60.Draw(staticShader);
@@ -1402,7 +1402,7 @@ int main() {
 		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
 		modelOp = glm::scale(modelOp, glm::vec3(0.3f));
 		staticShader.setMat4("model", modelOp);
-		centroComercial74.Draw(staticShader);*/
+		centroComercial74.Draw(staticShader);
 
 		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
 		modelOp = glm::scale(modelOp, glm::vec3(0.3f));
