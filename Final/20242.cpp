@@ -82,7 +82,7 @@ unsigned int	t_onepice,
 				t_ladrillos,
 				t_cubo;
 
-//Lighting
+//Lighting Carro Juguete
 glm::vec3 posMiLuz(0.0f, 0.0f, 0.0f);
 float myVariable = 0.0f;
 glm::vec3 lightPosition(0.0f, 4.0f, -10.0f);
@@ -96,7 +96,6 @@ float contador = 0.0f;
 glm::vec3 lightColor = glm::vec3(0.7f);
 glm::vec3 diffuseColor = lightColor * glm::vec3(0.0f);
 glm::vec3 ambientColor = diffuseColor * glm::vec3(0.0f);
-
 
 
 // posiciones
@@ -117,6 +116,15 @@ float   orientaAutoB = 0.0f;
 float   giroLlantaAutoB = 0.0f;
 float PI = 3.1416f;
 int		recorridoAutoB = 0;
+
+//Auto Juguete
+float	movAutoJ_x = 0.0f;
+float	movAutoJ_y = 0.0f;
+float	movAutoJ_z = 0.0f;
+float   orientaAutoJ = 0.0f;
+float   giroLlantaAutoJ = 0.0f;
+int		recorridoAutoJ = 0;
+
 
 
 //Keyframes (Manipulación y dibujo)
@@ -242,7 +250,7 @@ void LoadTextures()
 
 void animate(void) 
 {
-	posMiLuz.x = 150.0f * cos(myVariable);
+	/*posMiLuz.x = 150.0f * cos(myVariable);
 	posMiLuz.z = 150.0f * sin(myVariable);
 
 	myVariable += 0.10f;
@@ -260,7 +268,7 @@ void animate(void)
 	if (contador >= 50.0f)
 		contador = 0.0f;
 	
-	contador += 0.05f;
+	contador += 0.05f;*/
 
 	if (play)
 	{
@@ -326,6 +334,36 @@ void animate(void)
 		giroLlantaAutoB += 1.0;
 		if (movAutoB_z <= -480.0f) {
 			recorridoAutoB = 0; //Fin de la animación
+		}
+	}
+
+	//Auto tienda de juguetes
+	// Variables para el movimiento en forma de 8
+	float radius = 100.0f; // Radio de la figura
+	float centerX = 0.0f; // Centro en el eje X
+	float centerY = 0.0f; // Centro en el eje Y
+	float angularSpeed = 1.0f; // Velocidad angular
+	float forwardSpeed = 2.0f; // Velocidad hacia adelante
+
+	if (recorridoAutoJ == 1) {
+		// Movimiento en forma de 8 con dirección hacia adelante
+		float angle = orientaAutoJ * PI / 180.0f; // Convertir ángulo a radianes
+		float forwardX = forwardSpeed * cos(angle); // Componente X del movimiento hacia adelante
+		float forwardZ = forwardSpeed * sin(angle); // Componente Z del movimiento hacia adelante
+
+		posMiLuz.x = movAutoJ_x = centerX + radius * sin(2 * angle) + forwardX; // Ecuación paramétrica para el eje X
+		posMiLuz.z = movAutoJ_z = centerY + radius * sin(angle) + forwardZ; // Ecuación paramétrica para el eje Z
+
+		orientaAutoJ -= angularSpeed;
+
+		if (orientaAutoJ <= 0.0f && orientaAutoJ > -180.0f)
+			MiLuz = glm::vec3(1.0f, 0.0f, 0.0f);
+		if (orientaAutoJ <= 180.0f)
+			MiLuz = glm::vec3(0.0f, 0.0f, 1.0f);
+
+		if (orientaAutoJ <= -360.0f) {
+			orientaAutoJ += 360.0f;
+			recorridoAutoJ = 0; // Reiniciar la animación
 		}
 	}
 }
@@ -586,7 +624,7 @@ int main() {
 	Model centroComercial44("resources/objects/Centro Comercial Lab/banca5.obj");
 	Model centroComercial45("resources/objects/Centro Comercial Lab/banca6.obj");
 	Model centroComercial46("resources/objects/Centro Comercial Lab/banca7.obj");
-	Model centroComercial47("resources/objects/Centro Comercial Lab/banos2.obj");
+	Model centroComercial47("resources/objects/Centro Comercial Lab/banos2.obj");*/
 	Model centroComercial48("resources/objects/Tienda de juguetes/anaquelesjuguetes.obj");
 	Model centroComercial49("resources/objects/Tienda de juguetes/juguetes.obj");
 	Model centroComercial50("resources/objects/Tienda de juguetes/puerta.obj");
@@ -596,7 +634,7 @@ int main() {
 	Model centroComercial54("resources/objects/Banco/atm.obj");
 	Model centroComercial55("resources/objects/carrosplaza/carrosplaza.obj");
 	Model centroComercial56("resources/objects/carrosplaza/carrosplaza.obj");
-	Model centroComercial57("resources/objects/calle/calle/calle.obj");*/
+	Model centroComercial57("resources/objects/calle/calle/calle.obj");
 	Model centroComercial58("resources/objects/calle/edificio1/edificio1.obj");
 	Model centroComercial59("resources/objects/fastfood/fastfood2.obj");
 	Model centroComercial60("resources/objects/calle/edificio3/edificio3.obj");
@@ -625,7 +663,12 @@ int main() {
 	Model llantaAdIzq("resources/objects/Centro Comercial Lab/llantaIzqAd.obj");
 	Model llantaAtIzq("resources/objects/Centro Comercial Lab/llantaIzqAtr.obj");
 
-
+	// ************************************************************************** CARRO JUGUETE *********************************************************
+	Model autoJ("resources/objects/Centro Comercial Lab/autoJugueteC.obj");
+	Model llantaAdDerJ("resources/objects/Centro Comercial Lab/llantaAdDerCJ.obj");
+	Model llantaAtDerJ("resources/objects/Centro Comercial Lab/llantaAtDerCJ.obj");
+	Model llantaAdIzqJ("resources/objects/Centro Comercial Lab/llantaAdIzqCJ.obj");
+	Model llantaAtIzqJ("resources/objects/Centro Comercial Lab/llantaAtIzqCJ.obj");
 
 	//ModelAnim animacionPersonaje("resources/objects/Personaje1/Arm.dae");
 	//animacionPersonaje.initShaders(animShader.ID);
@@ -709,10 +752,10 @@ int main() {
 		staticShader.setVec3("pointLight[2].position", posMiLuz);
 		//staticShader.setVec3("pointLight[2].ambient", glm::vec3(0.8f, 0.0f, 0.0f));
 		//staticShader.setVec3("pointLight[2].diffuse", glm::vec3(1.0f, 0.0f, 0.0f));
-		//staticShader.setVec3("pointLight[2].ambient", MiLuz);
-		//staticShader.setVec3("pointLight[2].diffuse", MiLuz);
-		staticShader.setVec3("pointLight[2].ambient", glm::vec3(0.0f, 0.0f, 0.0f));
-		staticShader.setVec3("pointLight[2].diffuse", glm::vec3(0.0f, 0.0f, 0.0f));
+		staticShader.setVec3("pointLight[2].ambient", MiLuz);
+		staticShader.setVec3("pointLight[2].diffuse", MiLuz);
+		//staticShader.setVec3("pointLight[2].ambient", glm::vec3(0.0f, 0.0f, 0.0f));
+		//staticShader.setVec3("pointLight[2].diffuse", glm::vec3(0.0f, 0.0f, 0.0f));
 		staticShader.setVec3("pointLight[2].specular", glm::vec3(0.0f, 0.0f, 0.0f));
 		staticShader.setFloat("pointLight[2].constant", 0.001f);
 		staticShader.setFloat("pointLight[2].linear", 0.009f);
@@ -1201,7 +1244,7 @@ int main() {
 		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
 		modelOp = glm::scale(modelOp, glm::vec3(0.3f));
 		staticShader.setMat4("model", modelOp);
-		centroComercial47.Draw(staticShader);
+		centroComercial47.Draw(staticShader);*/
 
 		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
 		modelOp = glm::scale(modelOp, glm::vec3(0.3f));
@@ -1260,7 +1303,7 @@ int main() {
 		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
 		modelOp = glm::scale(modelOp, glm::vec3(0.3f));
 		staticShader.setMat4("model", modelOp);
-		centroComercial57.Draw(staticShader);*/
+		centroComercial57.Draw(staticShader);
 
 
 		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
@@ -1399,7 +1442,40 @@ int main() {
 		staticShader.setMat4("model", modelOp);
 		llantaAtIzq.Draw(staticShader);
 
-		
+		// -------------------------------------------------------------------------------------------------------------------------
+		// AUTO JUGUETE
+		// -------------------------------------------------------------------------------------------------------------------------
+		glm::mat4 tempAutoJ = glm::mat4(1.0f);
+
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(350.0f, 3.0f, 300.0f));
+		modelOp = glm::translate(modelOp, glm::vec3(movAutoJ_x, movAutoJ_y, movAutoJ_z));
+		tempAutoJ = modelOp = glm::rotate(modelOp, glm::radians(orientaAutoJ), glm::vec3(0.0f, 1.0f, 0.0f));
+		staticShader.setMat4("model", modelOp);
+		autoJ.Draw(staticShader);
+
+		modelOp = glm::translate(tempAutoJ, glm::vec3(3.935f, -1.69f, 1.428f));
+		modelOp = glm::rotate(modelOp, glm::radians(giroLlantaAutoJ), glm::vec3(1.0f, 0.0f, 0.0f));
+		////modelOp = glm::rotate(modelOp, glm::radians(rotBrazoIzq), glm::vec3(0.0, 1.0f, 0.0f));
+		staticShader.setMat4("model", modelOp);
+		llantaAdDerJ.Draw(staticShader);
+
+		modelOp = glm::translate(tempAutoJ, glm::vec3(3.935f, -1.69f, 17.518f));
+		modelOp = glm::rotate(modelOp, glm::radians(giroLlantaAutoJ), glm::vec3(1.0f, 0.0f, 0.0f));
+		////modelOp = glm::rotate(modelOp, glm::radians(rotBrazoIzq), glm::vec3(0.0, 1.0f, 0.0f));
+		staticShader.setMat4("model", modelOp);
+		llantaAtDerJ.Draw(staticShader);
+
+		modelOp = glm::translate(tempAutoJ, glm::vec3(-4.354f, -1.69f, 1.428f));
+		modelOp = glm::rotate(modelOp, glm::radians(giroLlantaAutoJ), glm::vec3(1.0f, 0.0f, 0.0f));
+		////modelOp = glm::rotate(modelOp, glm::radians(rotBrazoIzq), glm::vec3(0.0, 1.0f, 0.0f));
+		staticShader.setMat4("model", modelOp);
+		llantaAdIzqJ.Draw(staticShader);
+
+		modelOp = glm::translate(tempAutoJ, glm::vec3(-4.354f, -1.69f, 17.518f));
+		modelOp = glm::rotate(modelOp, glm::radians(giroLlantaAutoJ), glm::vec3(1.0f, 0.0f, 0.0f));
+		////modelOp = glm::rotate(modelOp, glm::radians(rotBrazoIzq), glm::vec3(0.0, 1.0f, 0.0f));
+		staticShader.setMat4("model", modelOp);
+		llantaAtIzqJ.Draw(staticShader);
 
 
 
