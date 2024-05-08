@@ -109,6 +109,15 @@ recorrido2 = false,
 recorrido3 = false,
 recorrido4 = false;
 
+//Auto B
+float	movAutoB_x = 0.0f;
+float	movAutoB_y = 0.0f;
+float	movAutoB_z = 0.0f;
+float   orientaAutoB = 0.0f;
+float   giroLlantaAutoB = 0.0f;
+float PI = 3.1416f;
+int		recorridoAutoB = 0;
+
 
 //Keyframes (Manipulación y dibujo)
 float	posX = 0.0f,
@@ -291,6 +300,33 @@ void animate(void)
 	if (animacion)
 	{
 		movAuto_x += 3.0f;
+	}
+
+	//Auto B
+	if (recorridoAutoB == 1) {
+		movAutoB_z -= 0.25f;
+		giroLlantaAutoB -= 1.0;
+		if (movAutoB_z <= -200.0f) {
+			recorridoAutoB = 2;
+		}
+	}
+
+	if (recorridoAutoB == 2) {
+		giroLlantaAutoB -= 1.0;
+		movAutoB_x -= 0.15f;
+		movAutoB_z += 0.05f;
+		orientaAutoB += 0.3f;
+		if (orientaAutoB >= 180.0f) {
+			recorridoAutoB = 3;
+		}
+	}
+
+	if (recorridoAutoB == 3) {
+		movAutoB_z -= 0.25f;
+		giroLlantaAutoB += 1.0;
+		if (movAutoB_z <= -480.0f) {
+			recorridoAutoB = 0; //Fin de la animación
+		}
 	}
 }
 
@@ -582,6 +618,12 @@ int main() {
 	Model centroComercial76("resources/objects/Centro Comercial Lab/techo.obj");
 
 
+	// ************************************************************************** CARRO *********************************************************
+	Model autoB("resources/objects/Centro Comercial Lab/autoB.obj");
+	Model llantaAdDer("resources/objects/Centro Comercial Lab/llantaDerAd.obj");
+	Model llantaAtDer("resources/objects/Centro Comercial Lab/llantaDerAtr.obj");
+	Model llantaAdIzq("resources/objects/Centro Comercial Lab/llantaIzqAd.obj");
+	Model llantaAtIzq("resources/objects/Centro Comercial Lab/llantaIzqAtr.obj");
 
 
 
@@ -1322,7 +1364,40 @@ int main() {
 		staticShader.setMat4("model", modelOp);
 		centroComercial76.Draw(staticShader);
 
-		
+		// -------------------------------------------------------------------------------------------------------------------------
+		// AUTO ESTACIONADO
+		// -------------------------------------------------------------------------------------------------------------------------
+		glm::mat4 tempAutoB = glm::mat4(1.0f);
+
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(390.0f, 3.0f, 300.0f));
+		modelOp = glm::translate(modelOp, glm::vec3(movAutoB_x, movAutoB_y, movAutoB_z));
+		tempAutoB = modelOp = glm::rotate(modelOp, glm::radians(orientaAutoB), glm::vec3(0.0f, 1.0f, 0.0f));
+		staticShader.setMat4("model", modelOp);
+		autoB.Draw(staticShader);
+
+		modelOp = glm::translate(tempAutoB, glm::vec3(4.0f, -2.618f, -11.142f));
+		modelOp = glm::rotate(modelOp, glm::radians(giroLlantaAutoB), glm::vec3(1.0f, 0.0f, 0.0f));
+		////modelOp = glm::rotate(modelOp, glm::radians(rotBrazoIzq), glm::vec3(0.0, 1.0f, 0.0f));
+		staticShader.setMat4("model", modelOp);
+		llantaAdDer.Draw(staticShader);
+
+		modelOp = glm::translate(tempAutoB, glm::vec3(4.0f, -2.618f, 6.356f));
+		modelOp = glm::rotate(modelOp, glm::radians(giroLlantaAutoB), glm::vec3(1.0f, 0.0f, 0.0f));
+		////modelOp = glm::rotate(modelOp, glm::radians(rotBrazoIzq), glm::vec3(0.0, 1.0f, 0.0f));
+		staticShader.setMat4("model", modelOp);
+		llantaAtDer.Draw(staticShader);
+
+		modelOp = glm::translate(tempAutoB, glm::vec3(-4.2f, -2.618f, -11.142f));
+		modelOp = glm::rotate(modelOp, glm::radians(giroLlantaAutoB), glm::vec3(1.0f, 0.0f, 0.0f));
+		////modelOp = glm::rotate(modelOp, glm::radians(rotBrazoIzq), glm::vec3(0.0, 1.0f, 0.0f));
+		staticShader.setMat4("model", modelOp);
+		llantaAdIzq.Draw(staticShader);
+
+		modelOp = glm::translate(tempAutoB, glm::vec3(-4.2f, -2.618f, 6.356f));
+		modelOp = glm::rotate(modelOp, glm::radians(giroLlantaAutoB), glm::vec3(1.0f, 0.0f, 0.0f));
+		////modelOp = glm::rotate(modelOp, glm::radians(rotBrazoIzq), glm::vec3(0.0, 1.0f, 0.0f));
+		staticShader.setMat4("model", modelOp);
+		llantaAtIzq.Draw(staticShader);
 
 		
 
@@ -1406,6 +1481,10 @@ void my_input(GLFWwindow* window, int key, int scancode, int action, int mode)
 	//Car animation
 	if (key == GLFW_KEY_SPACE && action == GLFW_PRESS)
 		animacion ^= true;
+
+	//Animacion Carro B
+	if (glfwGetKey(window, GLFW_KEY_1) == GLFW_PRESS)
+		recorridoAutoB = 1;
 
 	//To play KeyFrame animation 
 	if (key == GLFW_KEY_P && action == GLFW_PRESS)
