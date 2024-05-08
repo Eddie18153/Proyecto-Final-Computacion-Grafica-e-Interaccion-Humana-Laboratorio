@@ -578,7 +578,8 @@ int main() {
 	Model centroComercial72("resources/objects/calle/calle/peatones.obj");
 	Model centroComercial73("resources/objects/people/people1.obj");
 	Model centroComercial74("resources/objects/people/people2.obj");
-
+	Model centroComercial75("resources/objects/Centro Comercial Lab/fuenteP.obj");
+	Model centroComercial76("resources/objects/Centro Comercial Lab/techo.obj");
 
 
 
@@ -1310,6 +1311,16 @@ int main() {
 		modelOp = glm::scale(modelOp, glm::vec3(0.3f));
 		staticShader.setMat4("model", modelOp);
 		centroComercial74.Draw(staticShader);
+
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
+		modelOp = glm::scale(modelOp, glm::vec3(0.3f));
+		staticShader.setMat4("model", modelOp);
+		centroComercial75.Draw(staticShader);
+
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
+		modelOp = glm::scale(modelOp, glm::vec3(0.3f));
+		staticShader.setMat4("model", modelOp);
+		centroComercial76.Draw(staticShader);
 
 		
 
