@@ -16,8 +16,8 @@
 #define STB_IMAGE_IMPLEMENTATION
 #include <stb_image.h>					//Texture
 //Biblioteca de musica
-#include <irrKlang.h>
-using namespace irrklang;
+//#include <irrKlang.h>
+//using namespace irrklang;
 
 #define SDL_MAIN_HANDLED
 #include <SDL3/SDL.h>
@@ -490,9 +490,9 @@ int main() {
 
 	// load models
 	// -----------
-	Model piso("resources/objects/piso/piso.obj");
-	Model carro("resources/objects/lambo/carroceria.obj");
-	Model llanta("resources/objects/lambo/Wheel.obj");
+	//Model piso("resources/objects/piso/piso.obj");
+	//Model carro("resources/objects/lambo/carroceria.obj");
+	//Model llanta("resources/objects/lambo/Wheel.obj");
 	//Model casaVieja("resources/objects/casa/OldHouse.obj");
 	//Model cubo("resources/objects/cubo/cube02.obj");
 	//Model casaDoll("resources/objects/casa/DollHouse.obj");
@@ -503,7 +503,7 @@ int main() {
 
 	// Modelos Centro Comercial
 
-	Model centroComercial1("resources/objects/Centro Comercial Lab/paredes.obj");
+/*	Model centroComercial1("resources/objects/Centro Comercial Lab/paredes.obj");
 	Model centroComercial2("resources/objects/Centro Comercial Lab/pasto.obj");
 	Model centroComercial3("resources/objects/Centro Comercial Lab/piso1.obj");
 	Model centroComercial4("resources/objects/Centro Comercial Lab/piso2.obj");
@@ -560,7 +560,7 @@ int main() {
 	Model centroComercial54("resources/objects/Banco/atm.obj");
 	Model centroComercial55("resources/objects/carrosplaza/carrosplaza.obj");
 	Model centroComercial56("resources/objects/carrosplaza/carrosplaza.obj");
-	Model centroComercial57("resources/objects/calle/calle/calle.obj");
+	Model centroComercial57("resources/objects/calle/calle/calle.obj");*/
 	Model centroComercial58("resources/objects/calle/edificio1/edificio1.obj");
 	Model centroComercial59("resources/objects/fastfood/fastfood2.obj");
 	Model centroComercial60("resources/objects/calle/edificio3/edificio3.obj");
@@ -576,23 +576,25 @@ int main() {
 	Model centroComercial70("resources/objects/calle/edificio8/edificio8.obj");
 	Model centroComercial71("resources/objects/carros2/carros2.obj");
 	Model centroComercial72("resources/objects/calle/calle/peatones.obj");
+	Model centroComercial73("resources/objects/people/people1.obj");
+	Model centroComercial74("resources/objects/people/people2.obj");
 
 
 
 
 
 
-	ModelAnim animacionPersonaje("resources/objects/Personaje1/Arm.dae");
-	animacionPersonaje.initShaders(animShader.ID);
+	//ModelAnim animacionPersonaje("resources/objects/Personaje1/Arm.dae");
+	//animacionPersonaje.initShaders(animShader.ID);
 
-	ModelAnim elvis("resources/objects/Elvis/elvis.dae");
-	elvis.initShaders(animShader.ID);
+	//ModelAnim elvis("resources/objects/Elvis/elvis.dae");
+	//elvis.initShaders(animShader.ID);
 
 	//configuracion del sonido
 	
-	ISoundEngine* engine = createIrrKlangDevice();
-	ISoundEngine* engine2 = createIrrKlangDevice();
-	engine->play2D("media/centrocomercial.mp3", true);
+	//ISoundEngine* engine = createIrrKlangDevice();
+	//ISoundEngine* engine2 = createIrrKlangDevice();
+	//engine->play2D("media/centrocomercial.mp3", true);
 
 
 
@@ -726,21 +728,21 @@ int main() {
 		animShader.setVec3("light.specular", 1.0f, 1.0f, 1.0f);
 		animShader.setVec3("light.direction", lightDirection);
 		animShader.setVec3("viewPos", camera.Position);
-
+/*
 		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-40.3f, 1.75f, 0.3f)); // translate it down so it's at the center of the scene
 		modelOp = glm::scale(modelOp, glm::vec3(0.05f));	// it's a bit too big for our scene, so scale it down
 		modelOp = glm::rotate(modelOp, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		animShader.setMat4("model", modelOp);
-		animacionPersonaje.Draw(animShader);
+		animacionPersonaje.Draw(animShader);*/
 
 		// -------------------------------------------------------------------------------------------------------------------------
 		// Segundo Personaje Animacion
 		// -------------------------------------------------------------------------------------------------------------------------
-
+/*
 		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(10.0f, 0.0f, 15.0f)); // translate it down so it's at the center of the scene
 		modelOp = glm::scale(modelOp, glm::vec3(0.05f));	// it's a bit too big for our scene, so scale it down
 		animShader.setMat4("model", modelOp);
-		elvis.Draw(animShader);
+		elvis.Draw(animShader);*/
 
 
 		// -------------------------------------------------------------------------------------------------------------------------
@@ -761,23 +763,23 @@ int main() {
 
 		glBindVertexArray(VAO[0]);
 		//Colocar código aquí
-		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 10.0f, 0.0f));
+		/*modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 10.0f, 0.0f));
 		modelOp = glm::scale(modelOp, glm::vec3(5.0f, 5.0f, 1.0f));
 		myShader.setMat4("model", modelOp);
 		myShader.setVec3("aColor", 1.0f, 1.0f, 1.0f);
 		glBindTexture(GL_TEXTURE_2D, t_onepice);
 		//glDrawArrays(GL_TRIANGLES, 0, 36); //A lonely cube :(
-		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);*/
 
 		/***   Segundo objeto  **/
 		
-		glBindVertexArray(VAO[1]);
+		/*glBindVertexArray(VAO[1]);
 		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(3.0f, 10.0f, 10.0f));
 		myShader.setMat4("model", modelOp);
 		myShader.setVec3("aColor", 1.0f, 1.0f, 1.0f);
 		glBindTexture(GL_TEXTURE_2D, t_cubo);
 		//glDrawArrays(GL_TRIANGLES, 0, 36); //A lonely cube :(
-		//glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+		//glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);*/
 		
 		glBindVertexArray(0);
 		// ------------------------------------------------------------------------------------------------------------------------
@@ -791,7 +793,7 @@ int main() {
 		staticShader.setMat4("projection", projectionOp);
 		staticShader.setMat4("view", viewOp);
 
-
+/*
 		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-40.0f, 0.0f, 50.0f));
 		modelOp = glm::scale(modelOp, glm::vec3(3.5f));
 		staticShader.setMat4("model", modelOp);
@@ -828,13 +830,13 @@ int main() {
 		//Arbol.Draw(staticShader);
 		
 
-
+		*/
 
 		// -------------------------------------------------------------------------------------------------------------------------
 		// Carro
 		// -------------------------------------------------------------------------------------------------------------------------
 		//modelOp = glm::rotate(glm::mat4(1.0f), glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(movAuto_x, -1.0f, movAuto_z - 15.0f));
+	/*	modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(movAuto_x, -1.0f, movAuto_z - 15.0f));
 		tmp = modelOp = glm::rotate(modelOp, glm::radians(orienta), glm::vec3(0.0f, 1.0f, 0.0f));
 		modelOp = glm::scale(modelOp, glm::vec3(0.1f, 0.1f, 0.1f));
 		staticShader.setVec3("dirLight.specular", glm::vec3(0.6f, 0.6f, 0.6f));
@@ -861,7 +863,7 @@ int main() {
 		modelOp = glm::translate(tmp, glm::vec3(8.5f, 2.5f, -14.5f));
 		modelOp = glm::scale(modelOp, glm::vec3(0.1f, 0.1f, 0.1f));
 		staticShader.setMat4("model", modelOp);
-		llanta.Draw(staticShader);	//Izq trase
+		llanta.Draw(staticShader);	//Izq trase*/
 		// -------------------------------------------------------------------------------------------------------------------------
 		// Personaje
 		// -------------------------------------------------------------------------------------------------------------------------
@@ -923,7 +925,7 @@ int main() {
 
 		/*********************************************** Modelos Centro Comercial *********************************************/
 		
-		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
+		/*modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
 		modelOp = glm::scale(modelOp, glm::vec3(0.3f));
 		staticShader.setMat4("model", modelOp);
 		centroComercial1.Draw(staticShader);
@@ -1215,7 +1217,7 @@ int main() {
 		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
 		modelOp = glm::scale(modelOp, glm::vec3(0.3f));
 		staticShader.setMat4("model", modelOp);
-		centroComercial57.Draw(staticShader);
+		centroComercial57.Draw(staticShader);*/
 
 
 		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
@@ -1299,6 +1301,16 @@ int main() {
 		staticShader.setMat4("model", modelOp);
 		centroComercial72.Draw(staticShader);
 
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
+		modelOp = glm::scale(modelOp, glm::vec3(0.3f));
+		staticShader.setMat4("model", modelOp);
+		centroComercial73.Draw(staticShader);
+
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
+		modelOp = glm::scale(modelOp, glm::vec3(0.3f));
+		staticShader.setMat4("model", modelOp);
+		centroComercial74.Draw(staticShader);
+
 		
 
 		
@@ -1330,8 +1342,7 @@ int main() {
 	glDeleteBuffers(2, VBO);
 	//skybox.Terminate();
 	glfwTerminate();
-	engine->drop();
-	engine2->drop();
+	//engine->drop();
 
 
 	return 0;
