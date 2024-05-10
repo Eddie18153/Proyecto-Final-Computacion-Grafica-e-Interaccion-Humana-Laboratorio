@@ -681,6 +681,15 @@ int main() {
 	Model llantaAdIzqJ("resources/objects/Centro Comercial Lab/llantaAdIzqCJ.obj");
 	Model llantaAtIzqJ("resources/objects/Centro Comercial Lab/llantaAtIzqCJ.obj");
 
+	// ************************************************************************** BOTARGA PICACHU *********************************************************
+	Model cuerpoPic("resources/objects/Centro Comercial Lab/cuerpoPicachu.obj");
+	Model cabezaPic("resources/objects/Centro Comercial Lab/cabezaPicachu.obj");
+	Model brazoDerPic("resources/objects/Centro Comercial Lab/brazoDerPicachu.obj");
+	Model brazoIzqPic("resources/objects/Centro Comercial Lab/brazoIzqPicachu.obj");
+	Model pataDerPic("resources/objects/Centro Comercial Lab/pataDerPicachu.obj");
+	Model pataIzqPic("resources/objects/Centro Comercial Lab/pataIzqPicachu.obj");
+	Model colaPic("resources/objects/Centro Comercial Lab/colaPicachu.obj");
+
 	//ModelAnim animacionPersonaje("resources/objects/Personaje1/Arm.dae");
 	//animacionPersonaje.initShaders(animShader.ID);
 
