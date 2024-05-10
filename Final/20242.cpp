@@ -47,7 +47,7 @@ GLFWmonitor* monitors;
 GLuint VBO[3], VAO[3], EBO[3];
 
 //Camera
-Camera camera(glm::vec3(0.0f, 20.0f, 40.0f));//posicion inicial que tendra la camara 
+Camera camera(glm::vec3(0.0f, 150.0f, 200.0f));//posicion inicial que tendra la camara 
 float MovementSpeed = 0.1f;
 GLfloat lastX = SCR_WIDTH / 2.0f,
 		lastY = SCR_HEIGHT / 2.0f;
@@ -644,7 +644,7 @@ int main() {
 	Model centroComercial57("resources/objects/calle/calle/calle.obj");
 	Model centroComercial58("resources/objects/calle/edificio1/edificio1.obj");
 	Model centroComercial59("resources/objects/fastfood/fastfood2.obj");
-	Model centroComercial60("resources/objects/calle/edificio3/edificio3.obj");
+	/*Model centroComercial60("resources/objects/calle/edificio3/edificio3.obj");
 	Model centroComercial61("resources/objects/calle/edificio4/edificio4.obj");
 	Model centroComercial62("resources/objects/calle/edificio5/edificio5.obj");
 	Model centroComercial63("resources/objects/calle/edificio6/edificio6.obj");
@@ -656,14 +656,16 @@ int main() {
 	Model centroComercial69("resources/objects/calle/edificio7/edificio7.obj");
 	Model centroComercial70("resources/objects/calle/edificio8/edificio8.obj");
 	Model centroComercial71("resources/objects/carros2/carros2.obj");
-	Model centroComercial72("resources/objects/calle/calle/peatones.obj");
+	Model centroComercial72("resources/objects/calle/calle/peatones.obj");*/
 	Model centroComercial73("resources/objects/people/people1.obj");
 	Model centroComercial74("resources/objects/people/people2.obj");
 	Model centroComercial75("resources/objects/Centro Comercial Lab/fuenteP.obj");
 	Model centroComercial76("resources/objects/Centro Comercial Lab/techo.obj");
+	Model centroComercial77("resources/objects/people/people3.obj");
+	Model centroComercial78("resources/objects/locales2/banossegundopiso.obj");
 
 
-	// ************************************************************************** CARRO *********************************************************
+	/*// ************************************************************************** CARRO *********************************************************
 	Model autoB("resources/objects/Centro Comercial Lab/autoB.obj");
 	Model llantaAdDer("resources/objects/Centro Comercial Lab/llantaDerAd.obj");
 	Model llantaAtDer("resources/objects/Centro Comercial Lab/llantaDerAtr.obj");
@@ -675,7 +677,7 @@ int main() {
 	Model llantaAdDerJ("resources/objects/Centro Comercial Lab/llantaAdDerCJ.obj");
 	Model llantaAtDerJ("resources/objects/Centro Comercial Lab/llantaAtDerCJ.obj");
 	Model llantaAdIzqJ("resources/objects/Centro Comercial Lab/llantaAdIzqCJ.obj");
-	Model llantaAtIzqJ("resources/objects/Centro Comercial Lab/llantaAtIzqCJ.obj");
+	Model llantaAtIzqJ("resources/objects/Centro Comercial Lab/llantaAtIzqCJ.obj");*/
 
 	//ModelAnim animacionPersonaje("resources/objects/Personaje1/Arm.dae");
 	//animacionPersonaje.initShaders(animShader.ID);
@@ -1324,7 +1326,7 @@ int main() {
 		staticShader.setMat4("model", modelOp);
 		centroComercial59.Draw(staticShader);
 
-
+/*
 		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
 		modelOp = glm::scale(modelOp, glm::vec3(0.3f));
 		staticShader.setMat4("model", modelOp);
@@ -1392,7 +1394,7 @@ int main() {
 		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
 		modelOp = glm::scale(modelOp, glm::vec3(0.3f));
 		staticShader.setMat4("model", modelOp);
-		centroComercial72.Draw(staticShader);
+		centroComercial72.Draw(staticShader);*/
 
 		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
 		modelOp = glm::scale(modelOp, glm::vec3(0.3f));
@@ -1414,7 +1416,17 @@ int main() {
 		staticShader.setMat4("model", modelOp);
 		centroComercial76.Draw(staticShader);
 
-		// -------------------------------------------------------------------------------------------------------------------------
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
+		modelOp = glm::scale(modelOp, glm::vec3(0.3f));
+		staticShader.setMat4("model", modelOp);
+		centroComercial77.Draw(staticShader);
+
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
+		modelOp = glm::scale(modelOp, glm::vec3(0.3f));
+		staticShader.setMat4("model", modelOp);
+		centroComercial78.Draw(staticShader);
+
+		/*// -------------------------------------------------------------------------------------------------------------------------
 		// AUTO ESTACIONADO
 		// -------------------------------------------------------------------------------------------------------------------------
 		glm::mat4 tempAutoB = glm::mat4(1.0f);
@@ -1484,7 +1496,7 @@ int main() {
 		////modelOp = glm::rotate(modelOp, glm::radians(rotBrazoIzq), glm::vec3(0.0, 1.0f, 0.0f));
 		staticShader.setMat4("model", modelOp);
 		llantaAtIzqJ.Draw(staticShader);
-
+		*/
 
 
 		//-------------------------------------------------------------------------------------
