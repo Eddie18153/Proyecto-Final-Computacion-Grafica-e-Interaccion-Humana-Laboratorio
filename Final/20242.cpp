@@ -126,6 +126,21 @@ float   orientaAutoJ = 0.0f;
 float   giroLlantaAutoJ = 0.0f;
 int		recorridoAutoJ = 0;
 
+//Picachu
+float	movPicachu_x = 0.0f;
+float	movPicachu_y = 0.0f;
+float	movPicachu_z = 0.0f;
+float   orientaPicachu = 0.0f;
+float   giroCabezaPic = 0.0f;
+float   giroPicachuBD = 0.0f;
+float   giroPicachuBD2 = 0.0f;
+float   giroPicachuBI = 0.0f;
+float   giroPicachuPD = 0.0f;
+float   giroPicachuPI = 0.0f;
+float   giroColaPic = 0.0f;
+int		recorridoPicachu = 0;
+int     banderaPicachu = 0;
+
 
 
 //Keyframes (Manipulación y dibujo)
@@ -375,6 +390,210 @@ void animate(void)
 			recorridoAutoJ = 0; // Reiniciar la animación
 		}
 	}
+
+	// PICACHU
+	if (recorridoPicachu == 1) {
+		 giroPicachuBD -= 1.0f;
+		 if (giroPicachuBD <= -180.0f) {
+			 recorridoPicachu = 2;
+		 }
+	}
+
+	if (recorridoPicachu == 2) {
+		giroPicachuBD2 -= 1.0f;
+		if (giroPicachuBD2 <= -90.0f) {
+			recorridoPicachu = 3;
+		}
+	}
+
+	if (recorridoPicachu == 3) {
+		giroPicachuBD2 += 0.8f;
+		if (giroPicachuBD2 >= 0.0f) {
+			recorridoPicachu = 4;
+		}
+	}
+
+	if (recorridoPicachu == 4) {
+		movPicachu_x -= 0.2f;
+		if (banderaPicachu == 0) {
+			giroPicachuBD += 2.0f;
+			giroPicachuPI += 2.0f;
+			giroPicachuBI -= 2.0f;
+			giroPicachuPD -= 2.0f;
+			giroCabezaPic += 0.1f;
+			if (giroPicachuBD >= -90.0f) {
+				banderaPicachu = 1;
+			}
+		}
+		if (banderaPicachu == 1) {
+			giroPicachuBD -= 2.0f;
+			giroPicachuPI -= 2.0f;
+			giroPicachuBI += 2.0f;
+			giroPicachuPD += 2.0f;
+			giroCabezaPic -= 0.1f;
+			if (giroPicachuBD <= -180.0f) {
+				banderaPicachu = 0;
+			}
+		}
+		if (movPicachu_x <= -100.0f) {
+			recorridoPicachu = 5;
+		}
+	}
+	if (recorridoPicachu == 5) {
+			orientaPicachu -= 0.2f;
+			if (banderaPicachu == 0) {
+				giroPicachuBD += 2.0f;
+				giroPicachuPI += 2.0f;
+				giroPicachuBI -= 2.0f;
+				giroPicachuPD -= 2.0f;
+				giroCabezaPic += 0.1f;
+				giroColaPic += 0.2f;
+				if (giroPicachuBD >= -90.0f) {
+					banderaPicachu = 1;
+				}
+			}
+			if (banderaPicachu == 1) {
+				giroPicachuBD -= 2.0f;
+				giroPicachuPI -= 2.0f;
+				giroPicachuBI += 2.0f;
+				giroPicachuPD += 2.0f;
+				giroCabezaPic -= 0.1f;
+				giroColaPic -= 0.2f;
+				if (giroPicachuBD <= -180.0f) {
+					banderaPicachu = 0;
+				}
+			}
+			if (orientaPicachu <= -180.0f) {
+				recorridoPicachu = 6;
+			}
+	}
+
+	if (recorridoPicachu == 6) {
+		movPicachu_x += 0.2f;
+		if (banderaPicachu == 0) {
+			giroPicachuBD += 2.0f;
+			giroPicachuPI += 2.0f;
+			giroPicachuBI -= 2.0f;
+			giroPicachuPD -= 2.0f;
+			giroCabezaPic += 0.1f;
+			if (giroPicachuBD >= -90.0f) {
+				banderaPicachu = 1;
+			}
+		}
+		if (banderaPicachu == 1) {
+			giroPicachuBD -= 2.0f;
+			giroPicachuPI -= 2.0f;
+			giroPicachuBI += 2.0f;
+			giroPicachuPD += 2.0f;
+			giroCabezaPic -= 0.1f;
+			if (giroPicachuBD <= -180.0f) {
+				banderaPicachu = 0;
+			}
+		}
+		if (movPicachu_x >= 0.0f) {
+			recorridoPicachu = 7;
+		}
+	}
+
+	if (recorridoPicachu == 7) {
+			orientaPicachu += 0.2f;
+			if (banderaPicachu == 0) {
+				giroPicachuBD += 2.0f;
+				giroPicachuPI += 2.0f;
+				giroPicachuBI -= 2.0f;
+				giroPicachuPD -= 2.0f;
+				giroCabezaPic += 0.1f;
+				giroColaPic += 0.2f;
+				if (giroPicachuBD >= -90.0f) {
+					banderaPicachu = 1;
+				}
+			}
+			if (banderaPicachu == 1) {
+				giroPicachuBD -= 2.0f;
+				giroPicachuPI -= 2.0f;
+				giroPicachuBI += 2.0f;
+				giroPicachuPD += 2.0f;
+				giroCabezaPic -= 0.1f;
+				giroColaPic -= 0.2f;
+				if (giroPicachuBD <= -180.0f) {
+					banderaPicachu = 0;
+				}
+			}
+			if (orientaPicachu >= 0.0f) {
+				giroPicachuBD = 0.0f;
+				giroPicachuPI = 0.0f;
+				giroPicachuBI = 0.0f;
+				giroPicachuPD = 0.0f;
+				giroCabezaPic = 0.0f;
+				giroColaPic   = 0.0f;
+				recorridoPicachu = 0;
+			}
+	}
+
+	/*if (recorridoPolar == 2) {
+		movPolar_x += 0.2f;
+		if (banderaPolar == 0) {
+			giroPata1 += 0.2f;
+			giroPata2 -= 0.2f;
+			if (giroPata1 >= 25.0f) {
+				banderaPolar = 1;
+			}
+		}
+
+		if (banderaPolar == 1) {
+			giroPata1 -= 0.2f;
+			giroPata2 += 0.2f;
+			if (giroPata1 <= -25.0f) {
+				banderaPolar = 0;
+			}
+		}
+
+		if (movPolar_x >= 53.0f) {
+			recorridoPolar = 3;
+		}
+	}
+
+	if (recorridoPolar == 3) {
+		orientaPolar += 0.7f;
+		movPolar_x += 0.5 * cos(orientaPolar);
+		movPolar_z += 0.5 * sin(orientaPolar);
+		if (orientaPolar >= 180.0f) {
+			recorridoPolar = 4;
+		}
+	}
+
+	if (recorridoPolar == 4) {
+		movPolar_x -= 0.2f;
+		if (banderaPolar == 0) {
+			giroPata1 += 0.2f;
+			giroPata2 -= 0.2f;
+			if (giroPata1 >= 25.0f) {
+				banderaPolar = 1;
+			}
+		}
+
+		if (banderaPolar == 1) {
+			giroPata1 -= 0.2f;
+			giroPata2 += 0.2f;
+			if (giroPata1 <= -25.0f) {
+				banderaPolar = 0;
+			}
+		}
+
+		if (movPolar_x <= 0.0f) {
+			recorridoPolar = 5;
+		}
+	}
+
+	if (recorridoPolar == 5) {
+		orientaPolar += 0.7f;
+		movPolar_x += 0.5 * cos(orientaPolar);
+		movPolar_z += 0.5 * sin(orientaPolar);
+		if (orientaPolar >= 360.0f) {
+			orientaPolar -= 360.0f;
+			recorridoPolar = 0;
+		}
+	}*/
 }
 
 void getResolution() {
@@ -641,12 +860,12 @@ int main() {
 	Model centroComercial52("resources/objects/locales2/locales2dopiso.obj");
 	Model centroComercial53("resources/objects/fastfood/sillasfast.obj");
 	Model centroComercial54("resources/objects/Banco/atm.obj");
-	Model centroComercial55("resources/objects/carrosplaza/carrosplaza.obj");
+	/*Model centroComercial55("resources/objects/carrosplaza/carrosplaza.obj");
 	Model centroComercial56("resources/objects/carrosplaza/carrosplaza.obj");
 	Model centroComercial57("resources/objects/calle/calle/calle.obj");
 	Model centroComercial58("resources/objects/calle/edificio1/edificio1.obj");
 	Model centroComercial59("resources/objects/fastfood/fastfood2.obj");
-	/*Model centroComercial60("resources/objects/calle/edificio3/edificio3.obj");
+	Model centroComercial60("resources/objects/calle/edificio3/edificio3.obj");
 	Model centroComercial61("resources/objects/calle/edificio4/edificio4.obj");
 	Model centroComercial62("resources/objects/calle/edificio5/edificio5.obj");
 	Model centroComercial63("resources/objects/calle/edificio6/edificio6.obj");
@@ -658,13 +877,13 @@ int main() {
 	Model centroComercial69("resources/objects/calle/edificio7/edificio7.obj");
 	Model centroComercial70("resources/objects/calle/edificio8/edificio8.obj");
 	Model centroComercial71("resources/objects/carros2/carros2.obj");
-	Model centroComercial72("resources/objects/calle/calle/peatones.obj");*/
+	Model centroComercial72("resources/objects/calle/calle/peatones.obj");
 	Model centroComercial73("resources/objects/people/people1.obj");
 	Model centroComercial74("resources/objects/people/people2.obj");
 	Model centroComercial75("resources/objects/Centro Comercial Lab/fuenteP.obj");
 	Model centroComercial76("resources/objects/Centro Comercial Lab/techo.obj");
 	Model centroComercial77("resources/objects/people/people3.obj");
-	Model centroComercial78("resources/objects/locales2/banossegundopiso.obj");
+	Model centroComercial78("resources/objects/locales2/banossegundopiso.obj");*/
 
 
 	// ************************************************************************** CARRO *********************************************************
@@ -1307,7 +1526,7 @@ int main() {
 		staticShader.setMat4("model", modelOp);
 		centroComercial54.Draw(staticShader);
 
-
+/*
 		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
 		modelOp = glm::scale(modelOp, glm::vec3(0.3f));
 		staticShader.setMat4("model", modelOp);
@@ -1337,7 +1556,7 @@ int main() {
 		staticShader.setMat4("model", modelOp);
 		centroComercial59.Draw(staticShader);
 
-/*
+
 		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
 		modelOp = glm::scale(modelOp, glm::vec3(0.3f));
 		staticShader.setMat4("model", modelOp);
@@ -1405,7 +1624,7 @@ int main() {
 		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
 		modelOp = glm::scale(modelOp, glm::vec3(0.3f));
 		staticShader.setMat4("model", modelOp);
-		centroComercial72.Draw(staticShader);*/
+		centroComercial72.Draw(staticShader);
 
 		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
 		modelOp = glm::scale(modelOp, glm::vec3(0.3f));
@@ -1435,12 +1654,12 @@ int main() {
 		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
 		modelOp = glm::scale(modelOp, glm::vec3(0.3f));
 		staticShader.setMat4("model", modelOp);
-		centroComercial78.Draw(staticShader);
+		centroComercial78.Draw(staticShader);*/
 
 		// -------------------------------------------------------------------------------------------------------------------------
 		// AUTO ESTACIONADO
 		// -------------------------------------------------------------------------------------------------------------------------
-		glm::mat4 tempAutoB = glm::mat4(1.0f);
+		/*glm::mat4 tempAutoB = glm::mat4(1.0f);
 
 		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(390.0f, 3.0f, 300.0f));
 		modelOp = glm::translate(modelOp, glm::vec3(movAutoB_x, movAutoB_y, movAutoB_z));
@@ -1506,8 +1725,55 @@ int main() {
 		modelOp = glm::rotate(modelOp, glm::radians(giroLlantaAutoJ), glm::vec3(1.0f, 0.0f, 0.0f));
 		////modelOp = glm::rotate(modelOp, glm::radians(rotBrazoIzq), glm::vec3(0.0, 1.0f, 0.0f));
 		staticShader.setMat4("model", modelOp);
-		llantaAtIzqJ.Draw(staticShader);
+		llantaAtIzqJ.Draw(staticShader);*/
 		
+		// -------------------------------------------------------------------------------------------------------------------------
+		// BOTARGA PICACHU
+		// -------------------------------------------------------------------------------------------------------------------------
+		glm::mat4 tempPicachu = glm::mat4(1.0f);
+
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(125.0f, 24.0f, 15.0f));
+		modelOp = glm::translate(modelOp, glm::vec3(movPicachu_x, movPicachu_y, movPicachu_z));
+		modelOp = glm::scale(modelOp, glm::vec3(2.7f));
+		modelOp = glm::rotate(modelOp, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		tempPicachu = modelOp = glm::rotate(modelOp, glm::radians(orientaPicachu), glm::vec3(0.0f, 1.0f, 0.0f));
+		staticShader.setMat4("model", modelOp);
+		cuerpoPic.Draw(staticShader);
+
+		modelOp = glm::translate(tempPicachu, glm::vec3(0.0f, 1.538f, 0.646f));
+		modelOp = glm::rotate(modelOp, glm::radians(giroCabezaPic), glm::vec3(0.0f, 0.0f, 1.0f));
+		staticShader.setMat4("model", modelOp);
+		cabezaPic.Draw(staticShader);
+
+		modelOp = glm::translate(tempPicachu, glm::vec3(-0.856f, 0.77f, 0.638f));
+		modelOp = glm::rotate(modelOp, glm::radians(giroPicachuBD), glm::vec3(1.0f, 0.0f, 0.0f));
+		modelOp = glm::rotate(modelOp, glm::radians(giroPicachuBD2), glm::vec3(0.0f, 0.0f, 1.0f));
+		staticShader.setMat4("model", modelOp);
+		brazoDerPic.Draw(staticShader);
+
+		modelOp = glm::translate(tempPicachu, glm::vec3(0.895f, 0.77f, 0.638f));
+		modelOp = glm::rotate(modelOp, glm::radians(giroPicachuBI), glm::vec3(1.0f, 0.0f, 0.0f));
+		staticShader.setMat4("model", modelOp);
+		brazoIzqPic.Draw(staticShader);
+
+		modelOp = glm::translate(tempPicachu, glm::vec3(-0.706f, -1.471f, 0.0f));
+		modelOp = glm::rotate(modelOp, glm::radians(giroPicachuPD), glm::vec3(1.0f, 0.0f, 0.0f));
+		////modelOp = glm::rotate(modelOp, glm::radians(rotBrazoIzq), glm::vec3(0.0, 1.0f, 0.0f));
+		staticShader.setMat4("model", modelOp);
+		pataDerPic.Draw(staticShader);
+
+		modelOp = glm::translate(tempPicachu, glm::vec3(0.699f, -1.471f, 0.0f));
+		modelOp = glm::rotate(modelOp, glm::radians(giroPicachuPI), glm::vec3(1.0f, 0.0f, 0.0f));
+		////modelOp = glm::rotate(modelOp, glm::radians(rotBrazoIzq), glm::vec3(0.0, 1.0f, 0.0f));
+		staticShader.setMat4("model", modelOp);
+		pataIzqPic.Draw(staticShader);
+
+		modelOp = glm::translate(tempPicachu, glm::vec3(0.0f, -0.465f, -0.928f));
+		modelOp = glm::rotate(modelOp, glm::radians(giroColaPic), glm::vec3(0.0f, 0.0f, 1.0f));
+		////modelOp = glm::rotate(modelOp, glm::radians(rotBrazoIzq), glm::vec3(0.0, 1.0f, 0.0f));
+		staticShader.setMat4("model", modelOp);
+		colaPic.Draw(staticShader);
+
 
 
 		//-------------------------------------------------------------------------------------
@@ -1596,6 +1862,10 @@ void my_input(GLFWwindow* window, int key, int scancode, int action, int mode)
 	//Animacion Carro Juguete
 	if (glfwGetKey(window, GLFW_KEY_2) == GLFW_PRESS)
 		recorridoAutoJ = 1;
+
+	//Animacion Picachu
+	if (glfwGetKey(window, GLFW_KEY_3) == GLFW_PRESS)
+		recorridoPicachu = 1;
 
 	//To play KeyFrame animation 
 	if (key == GLFW_KEY_P && action == GLFW_PRESS)
