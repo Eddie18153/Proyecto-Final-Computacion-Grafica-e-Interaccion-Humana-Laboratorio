@@ -16,8 +16,8 @@
 #define STB_IMAGE_IMPLEMENTATION
 #include <stb_image.h>					//Texture
 //Biblioteca de musica
-//#include <irrKlang.h>
-//using namespace irrklang;
+#include <irrKlang.h>
+using namespace irrklang;
 
 #define SDL_MAIN_HANDLED
 #include <SDL3/SDL.h>
@@ -73,14 +73,7 @@ movZ = -5.0f,
 rotX = 0.0f,
 rotbrazoizq = 3.0f;
 
-//Texture
-unsigned int	t_onepice,
-				t_smile,
-				t_toalla,
-				t_unam,
-				t_white,
-				t_ladrillos,
-				t_cubo;
+
 
 //Lighting Carro Juguete
 glm::vec3 posMiLuz(0.0f, 0.0f, 0.0f);
@@ -237,14 +230,7 @@ unsigned int generateTextures(const char* filename, bool alfa, bool isPrimitive)
 
 void LoadTextures()
 {
-	t_onepice = generateTextures("Texturas/onepice.jpg", 0, true);   /// canal alfa transparencia 
-	t_smile = generateTextures("Texturas/awesomeface.png", 1, true);
-	t_toalla = generateTextures("Texturas/toalla.tga", 0, true);
-	t_unam = generateTextures("Texturas/escudo_unam.jpg", 0, true);
-	t_cubo = generateTextures("Texturas/cubo.jpg", 0, true);
-	t_ladrillos = generateTextures("Texturas/bricks.jpg", 0, true);
-	//This must be the last
-	t_white = generateTextures("Texturas/white.jpg", 0, false);
+
 }
 
 
@@ -571,19 +557,7 @@ int main() {
 	skyboxShader.use();
 	skyboxShader.setInt("skybox", 0);
 
-	// load models
-	// -----------
-	//Model piso("resources/objects/piso/piso.obj");
-	//Model carro("resources/objects/lambo/carroceria.obj");
-	//Model llanta("resources/objects/lambo/Wheel.obj");
-	//Model casaVieja("resources/objects/casa/OldHouse.obj");
-	//Model cubo("resources/objects/cubo/cube02.obj");
-	//Model casaDoll("resources/objects/casa/DollHouse.obj");
-	//Model CasaBrujas("resources/objects/Casita/CasaBrujas.obj");
-	//Model Parca("resources/objects/parca/parca.obj");
-	//Model Cubito("resources/objects/Cubito/cubito.obj");
-	//Model Arbol("resources/objects/arbol/arbol.obj");
-
+	
 	// Modelos Centro Comercial
 
 	Model centroComercial1("resources/objects/Centro Comercial Lab/paredes.obj");
@@ -690,17 +664,11 @@ int main() {
 	Model pataIzqPic("resources/objects/Centro Comercial Lab/pataIzqPicachu.obj");
 	Model colaPic("resources/objects/Centro Comercial Lab/colaPicachu.obj");
 
-	//ModelAnim animacionPersonaje("resources/objects/Personaje1/Arm.dae");
-	//animacionPersonaje.initShaders(animShader.ID);
-
-	//ModelAnim elvis("resources/objects/Elvis/elvis.dae");
-	//elvis.initShaders(animShader.ID);
 
 	//configuracion del sonido
 	
-	//ISoundEngine* engine = createIrrKlangDevice();
-	//ISoundEngine* engine2 = createIrrKlangDevice();
-	//engine->play2D("media/centrocomercial.mp3", true);
+	ISoundEngine* engine = createIrrKlangDevice();
+	engine->play2D("media/centrocomercial.mp3", true);
 
 
 
