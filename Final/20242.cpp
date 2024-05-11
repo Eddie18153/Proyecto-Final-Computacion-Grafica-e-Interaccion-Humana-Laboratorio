@@ -62,9 +62,9 @@ double	deltaTime = 0.0f,
 lastFrame = 0.0f;
 
 void getResolution(void);
-void myData(void);							// De la practica 4
-void LoadTextures(void);					// De la práctica 6
-unsigned int generateTextures(char*, bool, bool);	// De la práctica 6
+void myData(void);							
+void LoadTextures(void);					
+unsigned int generateTextures(char*, bool, bool);
 
 //For Keyboard
 float	movX = 0.0f,
@@ -85,7 +85,7 @@ glm::vec3 lightDirection(0.0f, -1.0f, -1.0f);
 glm::vec3 MiLuz(0.0f, 0.0f, 0.0f);
 float contador = 0.0f;
 
-//// Light
+// Light
 glm::vec3 lightColor = glm::vec3(0.7f);
 glm::vec3 diffuseColor = lightColor * glm::vec3(0.0f);
 glm::vec3 ambientColor = diffuseColor * glm::vec3(0.0f);
@@ -252,25 +252,6 @@ void LoadTextures()
 
 void animate(void) 
 {
-	/*posMiLuz.x = 150.0f * cos(myVariable);
-	posMiLuz.z = 150.0f * sin(myVariable);
-
-	myVariable += 0.10f;
-
-	if (contador >= 0.0f && contador < 10.0f)
-		MiLuz = glm::vec3(1.0f, 0.0f, 0.0f);
-	if (contador >= 10.0f && contador < 20.0f)
-		MiLuz = glm::vec3(1.0f, 1.0f, 1.0f);
-	if (contador >= 20.0f && contador < 30.0f)
-		MiLuz = glm::vec3(0.0f, 1.0f, 0.0f);
-	if (contador >= 30.0f && contador < 40.0f)
-		MiLuz = glm::vec3(0.0f, 0.0f, 1.0f);
-	if (contador >= 40.0f && contador < 50.0f)
-		MiLuz = glm::vec3(1.0f, 1.0f, 0.0f);
-	if (contador >= 50.0f)
-		contador = 0.0f;
-	
-	contador += 0.05f;*/
 
 	if (play)
 	{
@@ -727,8 +708,7 @@ int main() {
 	Model centroComercial10("resources/objects/Tienda de mascotas/animales.obj");
 	Model centroComercial11("resources/objects/Centro Comercial Lab/gas.obj");
 	Model centroComercial12("resources/objects/Tienda de mascotas/tiendamascotas.obj");
-
-	/*Model centroComercial13("resources/objects/Tienda Ropa Lab S/armario.obj");
+	Model centroComercial13("resources/objects/Tienda Ropa Lab S/armario.obj");
 	Model centroComercial14("resources/objects/Tienda Ropa Lab S/carrito1.obj");
 	Model centroComercial15("resources/objects/Tienda Ropa Lab S/carrito2.obj");
 	Model centroComercial16("resources/objects/Tienda Ropa Lab S/carrito3.obj");
@@ -762,7 +742,7 @@ int main() {
 	Model centroComercial44("resources/objects/Centro Comercial Lab/banca5.obj");
 	Model centroComercial45("resources/objects/Centro Comercial Lab/banca6.obj");
 	Model centroComercial46("resources/objects/Centro Comercial Lab/banca7.obj");
-	Model centroComercial47("resources/objects/Centro Comercial Lab/banos2.obj");*/
+	Model centroComercial47("resources/objects/Centro Comercial Lab/banos2.obj");
 	Model centroComercial48("resources/objects/Tienda de juguetes/anaquelesjuguetes.obj");
 	Model centroComercial49("resources/objects/Tienda de juguetes/juguetes.obj");
 	Model centroComercial50("resources/objects/Tienda de juguetes/puerta.obj");
@@ -770,7 +750,7 @@ int main() {
 	Model centroComercial52("resources/objects/locales2/locales2dopiso.obj");
 	Model centroComercial53("resources/objects/fastfood/sillasfast.obj");
 	Model centroComercial54("resources/objects/Banco/atm.obj");
-	/*Model centroComercial55("resources/objects/carrosplaza/carrosplaza.obj");
+	Model centroComercial55("resources/objects/carrosplaza/carrosplaza.obj");
 	Model centroComercial56("resources/objects/carrosplaza/carrosplaza.obj");
 	Model centroComercial57("resources/objects/calle/calle/calle.obj");
 	Model centroComercial58("resources/objects/calle/edificio1/edificio1.obj");
@@ -793,7 +773,7 @@ int main() {
 	Model centroComercial75("resources/objects/Centro Comercial Lab/fuenteP.obj");
 	Model centroComercial76("resources/objects/Centro Comercial Lab/techo.obj");
 	Model centroComercial77("resources/objects/people/people3.obj");
-	Model centroComercial78("resources/objects/locales2/banossegundopiso.obj");*/
+	Model centroComercial78("resources/objects/locales2/banossegundopiso.obj");
 
 
 	// ************************************************************************** CARRO *********************************************************
@@ -957,21 +937,6 @@ int main() {
 		animShader.setVec3("light.specular", 1.0f, 1.0f, 1.0f);
 		animShader.setVec3("light.direction", lightDirection);
 		animShader.setVec3("viewPos", camera.Position);
-/*
-		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-40.3f, 1.75f, 0.3f)); // translate it down so it's at the center of the scene
-		modelOp = glm::scale(modelOp, glm::vec3(0.05f));	// it's a bit too big for our scene, so scale it down
-		modelOp = glm::rotate(modelOp, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-		animShader.setMat4("model", modelOp);
-		animacionPersonaje.Draw(animShader);*/
-
-		// -------------------------------------------------------------------------------------------------------------------------
-		// Segundo Personaje Animacion
-		// -------------------------------------------------------------------------------------------------------------------------
-/*
-		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(10.0f, 0.0f, 15.0f)); // translate it down so it's at the center of the scene
-		modelOp = glm::scale(modelOp, glm::vec3(0.05f));	// it's a bit too big for our scene, so scale it down
-		animShader.setMat4("model", modelOp);
-		elvis.Draw(animShader);*/
 
 
 		// -------------------------------------------------------------------------------------------------------------------------
@@ -981,34 +946,9 @@ int main() {
 
 		//Tener Piso como referencia
 		glBindVertexArray(VAO[2]);
-		//Colocar código aquí
-		/*modelOp = glm::scale(glm::mat4(1.0f), glm::vec3(40.0f, 2.0f, 40.0f));
-		modelOp = glm::translate(modelOp, glm::vec3(0.0f, -1.0f, 0.0f));
-		modelOp = glm::rotate(modelOp, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
-		myShader.setMat4("model", modelOp);
-		myShader.setVec3("aColor", 1.0f, 1.0f, 1.0f);
-		glBindTexture(GL_TEXTURE_2D, t_ladrillos);
-		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);*/
 
 		glBindVertexArray(VAO[0]);
-		//Colocar código aquí
-		/*modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 10.0f, 0.0f));
-		modelOp = glm::scale(modelOp, glm::vec3(5.0f, 5.0f, 1.0f));
-		myShader.setMat4("model", modelOp);
-		myShader.setVec3("aColor", 1.0f, 1.0f, 1.0f);
-		glBindTexture(GL_TEXTURE_2D, t_onepice);
-		//glDrawArrays(GL_TRIANGLES, 0, 36); //A lonely cube :(
-		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);*/
 
-		/***   Segundo objeto  **/
-		
-		/*glBindVertexArray(VAO[1]);
-		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(3.0f, 10.0f, 10.0f));
-		myShader.setMat4("model", modelOp);
-		myShader.setVec3("aColor", 1.0f, 1.0f, 1.0f);
-		glBindTexture(GL_TEXTURE_2D, t_cubo);
-		//glDrawArrays(GL_TRIANGLES, 0, 36); //A lonely cube :(
-		//glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);*/
 		
 		glBindVertexArray(0);
 		// ------------------------------------------------------------------------------------------------------------------------
@@ -1021,135 +961,6 @@ int main() {
 		staticShader.use();
 		staticShader.setMat4("projection", projectionOp);
 		staticShader.setMat4("view", viewOp);
-
-/*
-		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-40.0f, 0.0f, 50.0f));
-		modelOp = glm::scale(modelOp, glm::vec3(3.5f));
-		staticShader.setMat4("model", modelOp);
-		//CasaBrujas.Draw(staticShader);
-
-
-
-		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(250.0f, 0.0f, -10.0f));
-		modelOp = glm::rotate(modelOp, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-		staticShader.setMat4("model", modelOp);
-		//casaDoll.Draw(staticShader);
-
-		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, -1.75f, 0.0f));
-		modelOp = glm::scale(modelOp, glm::vec3(0.2f));
-		staticShader.setMat4("model", modelOp);
-		piso.Draw(staticShader);
-
-		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, -70.0f));
-		modelOp = glm::scale(modelOp, glm::vec3(5.0f));
-		staticShader.setMat4("model", modelOp);
-		staticShader.setVec3("dirLight.specular", glm::vec3(0.0f, 0.0f, 0.0f));
-		//casaVieja.Draw(staticShader);
-
-		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(40.0f, 0.0f, 70.0f));
-		modelOp = glm::scale(modelOp, glm::vec3(0.5f));
-		staticShader.setMat4("model", modelOp);
-		staticShader.setVec3("dirLight.specular", glm::vec3(0.0f, 0.0f, 0.0f));
-		//Parca.Draw(staticShader);
-
-		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(100.0f, 0.0f, 70.0f));
-		modelOp = glm::scale(modelOp, glm::vec3(5.0f));
-		staticShader.setMat4("model", modelOp);
-		staticShader.setVec3("dirLight.specular", glm::vec3(0.0f, 0.0f, 0.0f));
-		//Arbol.Draw(staticShader);
-		
-
-		*/
-
-		// -------------------------------------------------------------------------------------------------------------------------
-		// Carro
-		// -------------------------------------------------------------------------------------------------------------------------
-		//modelOp = glm::rotate(glm::mat4(1.0f), glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-	/*	modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(movAuto_x, -1.0f, movAuto_z - 15.0f));
-		tmp = modelOp = glm::rotate(modelOp, glm::radians(orienta), glm::vec3(0.0f, 1.0f, 0.0f));
-		modelOp = glm::scale(modelOp, glm::vec3(0.1f, 0.1f, 0.1f));
-		staticShader.setVec3("dirLight.specular", glm::vec3(0.6f, 0.6f, 0.6f));
-		staticShader.setMat4("model", modelOp);
-		carro.Draw(staticShader);
-
-		modelOp = glm::translate(tmp, glm::vec3(8.5f, 2.5f, 12.9f));
-		modelOp = glm::scale(modelOp, glm::vec3(0.1f, 0.1f, 0.1f));
-		staticShader.setMat4("model", modelOp);
-		llanta.Draw(staticShader);	//Izq delantera
-
-		modelOp = glm::translate(tmp, glm::vec3(-8.5f, 2.5f, 12.9f));
-		modelOp = glm::scale(modelOp, glm::vec3(0.1f, 0.1f, 0.1f));
-		modelOp = glm::rotate(modelOp, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-		staticShader.setMat4("model", modelOp);
-		llanta.Draw(staticShader);	//Der delantera
-
-		modelOp = glm::translate(tmp, glm::vec3(-8.5f, 2.5f, -14.5f));
-		modelOp = glm::scale(modelOp, glm::vec3(0.1f, 0.1f, 0.1f));
-		modelOp = glm::rotate(modelOp, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-		staticShader.setMat4("model", modelOp);
-		llanta.Draw(staticShader);	//Der trasera
-
-		modelOp = glm::translate(tmp, glm::vec3(8.5f, 2.5f, -14.5f));
-		modelOp = glm::scale(modelOp, glm::vec3(0.1f, 0.1f, 0.1f));
-		staticShader.setMat4("model", modelOp);
-		llanta.Draw(staticShader);	//Izq trase*/
-		// -------------------------------------------------------------------------------------------------------------------------
-		// Personaje
-		// -------------------------------------------------------------------------------------------------------------------------
-
-
-		
-		// -------------------------------------------------------------------------------------------------------------------------
-		// Just in case
-		// -------------------------------------------------------------------------------------------------------------------------
-		/*modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(posX, posY, posZ));
-		tmp = modelOp = glm::rotate(modelOp, glm::radians(giroMonito), glm::vec3(0.0f, 1.0f, 0.0));
-		staticShader.setMat4("model", modelOp);
-		torso.Draw(staticShader);
-
-		//Pierna Der
-		modelOp = glm::translate(tmp, glm::vec3(-0.5f, 0.0f, -0.1f));
-		modelOp = glm::rotate(modelOp, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0));
-		modelOp = glm::rotate(modelOp, glm::radians(-rotRodIzq), glm::vec3(1.0f, 0.0f, 0.0f));
-		staticShader.setMat4("model", modelOp);
-		piernaDer.Draw(staticShader);
-
-		//Pie Der
-		modelOp = glm::translate(modelOp, glm::vec3(0, -0.9f, -0.2f));
-		staticShader.setMat4("model", modelOp);
-		botaDer.Draw(staticShader);
-
-		//Pierna Izq
-		modelOp = glm::translate(tmp, glm::vec3(0.5f, 0.0f, -0.1f));
-		modelOp = glm::rotate(modelOp, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-		staticShader.setMat4("model", modelOp);
-		piernaIzq.Draw(staticShader);
-
-		//Pie Iz
-		modelOp = glm::translate(modelOp, glm::vec3(0, -0.9f, -0.2f));
-		staticShader.setMat4("model", modelOp);
-		botaDer.Draw(staticShader);	//Izq trase
-
-		//Brazo derecho
-		modelOp = glm::translate(tmp, glm::vec3(0.0f, -1.0f, 0.0f));
-		modelOp = glm::translate(modelOp, glm::vec3(-0.75f, 2.5f, 0));
-		modelOp = glm::rotate(modelOp, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-		staticShader.setMat4("model", modelOp);
-		brazoDer.Draw(staticShader);
-
-		//Brazo izquierdo
-		modelOp = glm::translate(tmp, glm::vec3(0.0f, -1.0f, 0.0f));
-		modelOp = glm::translate(modelOp, glm::vec3(0.75f, 2.5f, 0));
-		modelOp = glm::rotate(modelOp, glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0f));
-		staticShader.setMat4("model", modelOp);
-		brazoIzq.Draw(staticShader);
-
-		//Cabeza
-		modelOp = glm::translate(tmp, glm::vec3(0.0f, -1.0f, 0.0f));
-		modelOp = glm::rotate(modelOp, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0));
-		modelOp = glm::translate(modelOp, glm::vec3(0.0f, 2.5f, 0));
-		staticShader.setMat4("model", modelOp);
-		cabeza.Draw(staticShader);*/
 		
 
 		/*********************************************** Modelos Centro Comercial *********************************************/
@@ -1214,7 +1025,7 @@ int main() {
 		staticShader.setMat4("model", modelOp);
 		centroComercial12.Draw(staticShader);
 
-		/*modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
 		modelOp = glm::scale(modelOp, glm::vec3(0.3f));
 		staticShader.setMat4("model", modelOp);
 		centroComercial13.Draw(staticShader);
@@ -1387,7 +1198,7 @@ int main() {
 		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
 		modelOp = glm::scale(modelOp, glm::vec3(0.3f));
 		staticShader.setMat4("model", modelOp);
-		centroComercial47.Draw(staticShader);*/
+		centroComercial47.Draw(staticShader);
 
 		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
 		modelOp = glm::scale(modelOp, glm::vec3(0.3f));
@@ -1430,7 +1241,7 @@ int main() {
 		staticShader.setMat4("model", modelOp);
 		centroComercial54.Draw(staticShader);
 
-/*
+
 		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
 		modelOp = glm::scale(modelOp, glm::vec3(0.3f));
 		staticShader.setMat4("model", modelOp);
@@ -1558,12 +1369,12 @@ int main() {
 		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, 100.0f));
 		modelOp = glm::scale(modelOp, glm::vec3(0.3f));
 		staticShader.setMat4("model", modelOp);
-		centroComercial78.Draw(staticShader);*/
+		centroComercial78.Draw(staticShader);
 
 		// -------------------------------------------------------------------------------------------------------------------------
 		// AUTO ESTACIONADO
 		// -------------------------------------------------------------------------------------------------------------------------
-		/*glm::mat4 tempAutoB = glm::mat4(1.0f);
+		glm::mat4 tempAutoB = glm::mat4(1.0f);
 
 		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(390.0f, 3.0f, 300.0f));
 		modelOp = glm::translate(modelOp, glm::vec3(movAutoB_x, movAutoB_y, movAutoB_z));
@@ -1629,7 +1440,7 @@ int main() {
 		modelOp = glm::rotate(modelOp, glm::radians(giroLlantaAutoJ), glm::vec3(1.0f, 0.0f, 0.0f));
 		////modelOp = glm::rotate(modelOp, glm::radians(rotBrazoIzq), glm::vec3(0.0, 1.0f, 0.0f));
 		staticShader.setMat4("model", modelOp);
-		llantaAtIzqJ.Draw(staticShader);*/
+		llantaAtIzqJ.Draw(staticShader);
 		
 		// -------------------------------------------------------------------------------------------------------------------------
 		// BOTARGA PICACHU
